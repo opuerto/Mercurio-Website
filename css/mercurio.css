@@ -7,6 +7,12 @@
   
 }
 
+#conteiner-pages
+{
+	min-height: 1320px;
+}
+
+
 .header-inner .menu-items .navbar {
  	margin-bottom: 0 !important;
  	border: none;
@@ -65,3 +71,44 @@
 }
 
 
+/*
+ Estilo para los anuncios 
+
+*/
+
+.anuncios .pv-body
+{
+  min-height: 198px !important;
+}
+
+.anuncios-vencidos .pv-body
+{
+  min-height: 198px !important;
+}
+.anuncios .profile-view .pv-header 
+{
+  background-image: none;
+  background-color:#F44336;
+}
+
+.anuncios .profile-view .pv-header 
+{
+  background-image: none;
+  background-color:#F44336;
+}
+
+a .anuncios ul li
+{
+  color:#5e5e5e;
+}
+
+
+
+
+/* hide the ul element in anuncios when */
+/* No greater than 900px, no less than 400px */
+@media (max-width:1349px) and (min-width:768px) {
+    .hide-fit {
+        display:none;
+    }
+}​

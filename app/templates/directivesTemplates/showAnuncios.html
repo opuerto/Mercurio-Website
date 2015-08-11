@@ -1,0 +1,23 @@
+<a ng-href="#/anuncios/ver/{{anuncioResult.id}}">
+<div id="anuncios" class="anuncios" >
+    <div class="card profile-view">
+        <div class="pv-header" ng-if="anuncioResult.tipoAnuncio === 'empresa'">
+            <img ng-src="http://localapi.mercurio.hn/api/v0.1/logoanuncioempresa/empresas/{{anuncioResult.empresa_id}}/logos" class="pv-main" alt="">
+        </div>
+        <div class="pv-header" ng-if="anuncioResult.tipoAnuncio === 'admin'">
+            <img ng-src="http://localapi.mercurio.hn/api/v0.1/anuncio/logoanuncio/{{anuncioResult.id}}" class="pv-main" alt="">
+        </div>
+        <div class="pv-body">
+            <h2>{{anuncioResult.titulo}}</h2>
+            <ul class="pv-follow">
+                <li style="font-size: 15px">{{anuncioResult.nombreEmpresa | uppercase}}</li>
+            </ul>
+            <ul id="anuncio-contacto" class="pv-contact hide-fit">
+                <li ng-if="anuncioResult.telefono != null"><i class="md md-phone"></i> {{anuncioResult.telefono}}</li>
+                <li ng-if="anuncioResult.email != null"><i class="md md-email"></i> {{anuncioResult.email}}</li>
+            </ul>
+            <!--button class="btn btn-primary bgm-deeporange  btn-block waves-effect waves-button waves-float">Ver detalles</button-->
+        </div>
+    </div>
+</div>
+</a>

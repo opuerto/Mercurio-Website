@@ -1,251 +1,211 @@
 <!DOCTYPE html>
 <!--[if IE 9 ]><html class="ie9"><![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mercurio</title>
-    <!-- Vendor CSS -->
-    <link href="vendors/fullcalendar/fullcalendar.css" rel="stylesheet">
-    <link href="vendors/animate-css/animate.min.css" rel="stylesheet">
-    <link href="vendors/sweet-alert/sweet-alert.min.css" rel="stylesheet">
-    <link href="vendors/material-icons/material-design-iconic-font.min.css" rel="stylesheet">
-    <link href="vendors/socicon/socicon.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Arvo:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-        <!-- CSS -->
-        <link href="css/app.min.1.css" rel="stylesheet">
-        <link href="css/app.min.2.css" rel="stylesheet">
-        <link href="css/mercurio.css" rel="stylesheet">
-    </head>
-    <body>
-        <header id="header" class="bgm-red">
-            <ul class="header-inner">
-                <li id="menu-trigger" data-trigger="#sidebar">
-                    <div class="line-wrap">
-                        <div class="line top"></div>
-                        <div class="line center"></div>
-                        <div class="line bottom"></div>
-                    </div>
-                </li>
-                <li class="logo hidden-xs">
-                    <a href="index.html">Mercurio.hn</a>
-                </li>
-                <li class="menu-items" id="menu-principal">
-                    <!--div id="nav-container">
-                                                            <ul>
-                                                                        <li><a>Trabajos</a></li>
-                                                                        <li><a>Registra tu empresa</a></li>
-                                                                        <li><a>Quienes somos ?</a></li>
-                                                                        <li><a>Contactanos</a></li>
-                                                            </ul>
-                </div-->
-                <nav class="navbar navbar-default bgm-red">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            </button>
+<html lang="es" ng-app="mercurioApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mercurio</title>
+        <!-- Vendor CSS -->
+        <link href="vendors/fullcalendar/fullcalendar.css" rel="stylesheet">
+        <link href="vendors/animate-css/animate.min.css" rel="stylesheet">
+        <link href="vendors/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+        <link href="vendors/material-icons/material-design-iconic-font.min.css" rel="stylesheet">
+        <link href="vendors/socicon/socicon.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+            <!-- CSS -->
+            <link href="css/app.min.1.css" rel="stylesheet">
+            <link href="css/app.min.2.css" rel="stylesheet">
+            <link href="css/mercurio.css" rel="stylesheet">
+            <!--Scripts-->
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+            <script src="//code.angularjs.org/1.4.0/angular-route.min.js"></script>
+            <script src="//code.angularjs.org/1.4.0/angular-resource.min.js"></script>
+            <script src="//code.angularjs.org/1.4.0/angular-cookies.min.js"></script>
+            <script src="/js/angular-sanitize.min.js"></script>
+            <script src="/js/angular-animate.min.js"></script>
+        </head>
+        <body>
+            <header id="header" class="bgm-red">
+                <ul class="header-inner">
+                    <li id="menu-trigger" data-trigger="#sidebar">
+                        <div class="line-wrap">
+                            <div class="line top"></div>
+                            <div class="line center"></div>
+                            <div class="line bottom"></div>
                         </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li><a href="/"><i class="md md-view-module"></i> Trabajos</a></li>
-                                <li><a href="#"><i class="md md-accessibility"></i> Registra tu empresa</a></li>
-                                <li><a href="#"><i class="md md-email"></i> Contactanos</a></li>
-                                <!--li class="dropdown">
-                                                                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                                                                                        <ul class="dropdown-menu">
-                                                                                                                    <li><a href="#">Action</a></li>
-                                                                                                                    <li><a href="#">Another action</a></li>
-                                                                                                                    <li><a href="#">Something else here</a></li>
-                                                                                                                    <li role="separator" class="divider"></li>
-                                                                                                                    <li><a href="#">Separated link</a></li>
-                                                                                                                    <li role="separator" class="divider"></li>
-                                                                                                                    <li><a href="#">One more separated link</a></li>
-                                                                                                        </ul>
-                            </li-->
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </li>
-        <li class="pull-right">
-            <ul class="top-menu">
-                <li id="toggle-width">
-                    <div class="toggle-switch">
-                        <input id="tw-switch" type="checkbox" hidden="hidden">
-                        <label for="tw-switch" class="ts-helper"></label>
-                    </div>
-                </li>
-                <li id="top-search">
-                    <a class="tm-search" href=""></a>
-                </li>
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="tm-login" href=""></a>
-                    <div class="dropdown-menu dropdown-menu-lg pull-right">
-                        <div class="listview">
-                            <div class="lv-header">
-                                Iniciar sesión empresas
-                            </div>
-                            <div class="lv-body c-overflow">
-                                <div class="media">
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="img/profile-pics/1.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <a class="lv-item" href="">
-                                <div class="media">
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Jonathan Morris</div>
-                                        <small class="lv-small">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
-                                    </div>
-                                </div>
-                                </a>
-                                <a class="lv-item" href="">
-                                <div class="media">
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="img/profile-pics/3.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Fredric Mitchell Jr.</div>
-                                        <small class="lv-small">Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</small>
-                                    </div>
-                                </div>
-                                </a>
-                                <a class="lv-item" href="">
-                                <div class="media">
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Glenn Jecobs</div>
-                                        <small class="lv-small">Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</small>
-                                    </div>
-                                </div>
-                                </a>
-                                <a class="lv-item" href="">
-                                <div class="media">
-                                    <div class="pull-left">
-                                        <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="lv-title">Bill Phillips</div>
-                                        <small class="lv-small">Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</small>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
-                            <a class="lv-footer" href="">View All</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <!-- Top Search Content -->
-    <div id="top-search-wrap">
-        <input type="text">
-        <i id="top-search-close">&times;</i>
-    </div>
-</header>
-<section id="main">
-    <aside id="sidebar">
-        <div class="sidebar-inner">
-            <div class="si-inner">
-                <ul class="main-menu">
-                    <li class="sub-menu">
-                        <a href=""><i class="md md-now-widgets"></i> Widgets</a>
-                        <ul>
-                            <li><a href="widget-templates.html">Templates</a></li>
-                            <li><a class="active" href="widgets.html">Widgets</a></li>
-                        </ul>
                     </li>
-                    <li class="sub-menu">
-                        <a href=""><i class="md md-view-list"></i> Tables</a>
-                        <ul>
-                            <li><a href="tables.html">Normal Tables</a></li>
-                            <li><a href="data-tables.html">Data Tables</a></li>
+                    <li class="logo hidden-xs">
+                        <a href="index.html">Mercurio.hn</a>
+                    </li>
+                    <li class="menu-items" id="menu-principal">
+                        <nav class="navbar navbar-default bgm-red">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="/#/"><i class="md md-view-module"></i> Trabajos</a></li>
+                                        <li><a href="#"><i class="md md-accessibility"></i> Registra tu empresa</a></li>
+                                        <li><a href="#"><i class="md md-email"></i> Contactanos</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </li>
+                    <li class="pull-right">
+                        <ul class="top-menu">
+                            <li id="toggle-width">
+                                <div class="toggle-switch">
+                                    <input id="tw-switch" type="checkbox" hidden="hidden">
+                                    <label for="tw-switch" class="ts-helper"></label>
+                                </div>
+                            </li>
+                            <li id="top-search">
+                                <a class="tm-search" href=""></a>
+                            </li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="tm-login" href=""></a>
+                                <div class="dropdown-menu dropdown-menu-lg pull-right">
+                                    <div class="listview">
+                                        <div class="lv-header">
+                                            Iniciar sesión empresas
+                                        </div>
+                                        <div class="lv-body c-overflow">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/1.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                            <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Jonathan Morris</div>
+                                                    <small class="lv-small">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
+                                                </div>
+                                            </div>
+                                            </a>
+                                            <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/3.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Fredric Mitchell Jr.</div>
+                                                    <small class="lv-small">Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</small>
+                                                </div>
+                                            </div>
+                                            </a>
+                                            <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Glenn Jecobs</div>
+                                                    <small class="lv-small">Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</small>
+                                                </div>
+                                            </div>
+                                            </a>
+                                            <a class="lv-item" href="">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="lv-title">Bill Phillips</div>
+                                                    <small class="lv-small">Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</small>
+                                                </div>
+                                            </div>
+                                            </a>
+                                        </div>
+                                        <a class="lv-footer" href="">View All</a>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </aside>
-    <section id="content">
-        <div class="container">
-            
-        </div>
-    </section>
-</section>
-<!-- Older IE warning message -->
-<!--[if lt IE 9]>
-                <div class="ie-warning">
-                                <h1 class="c-white">IE SUCKS!</h1>
-                                <p>You are using an outdated version of Internet Explorer, upgrade to any of the following web browser <br/>in order to access the maximum functionality of this website. </p>
-                                <ul class="iew-download">
-                                                <li>
-                                                                <a href="http://www.google.com/chrome/">
-                                                                    <img src="img/browsers/chrome.png" alt="">
-                                                                    <div>Chrome</div>
-                                                                </a>
-                                                </li>
-                                                <li>
-                                                                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                                                                    <img src="img/browsers/firefox.png" alt="">
-                                                                    <div>Firefox</div>
-                                                                </a>
-                                                </li>
-                                                <li>
-                                                                <a href="http://www.opera.com">
-                                                                    <img src="img/browsers/opera.png" alt="">
-                                                                    <div>Opera</div>
-                                                                </a>
-                                                </li>
-                                                <li>
-                                                                <a href="https://www.apple.com/safari/">
-                                                                    <img src="img/browsers/safari.png" alt="">
-                                                                    <div>Safari</div>
-                                                                </a>
-                                                </li>
-                                                <li>
-                                                                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                                                                    <img src="img/browsers/ie.png" alt="">
-                                                                    <div>IE (New)</div>
-                                                                </a>
-                                                </li>
-                                </ul>
-                                <p>Upgrade your browser for a Safer and Faster web experience. <br/>Thank you for your patience...</p>
+                <!-- Top Search Content -->
+                <div id="top-search-wrap">
+                    <input type="text">
+                    <i id="top-search-close">&times;</i>
                 </div>
-<![endif]-->
-<!-- Javascript Libraries -->
-<script src="js/jquery-2.1.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="vendors/flot/jquery.flot.min.js"></script>
-<script src="vendors/flot/jquery.flot.resize.min.js"></script>
-<script src="vendors/flot/plugins/curvedLines.js"></script>
-<script src="vendors/sparklines/jquery.sparkline.min.js"></script>
-<script src="vendors/easypiechart/jquery.easypiechart.min.js"></script>
-<script src="vendors/fullcalendar/lib/moment.min.js"></script>
-<script src="vendors/fullcalendar/fullcalendar.min.js"></script>
-<script src="vendors/simpleWeather/jquery.simpleWeather.min.js"></script>
-<script src="vendors/auto-size/jquery.autosize.min.js"></script>
-<script src="vendors/nicescroll/jquery.nicescroll.min.js"></script>
-<script src="vendors/waves/waves.min.js"></script>
-<script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
-<script src="vendors/sweet-alert/sweet-alert.min.js"></script>
-<script src="js/flot-charts/curved-line-chart.js"></script>
-<script src="js/flot-charts/line-chart.js"></script>
-<script src="js/charts.js"></script>
-<script src="js/charts.js"></script>
-<script src="js/functions.js"></script>
-<script src="js/demo.js"></script>
-</body>
-</html>
+            </header>
+            <section id="main">
+                <aside id="sidebar">
+                    <div class="sidebar-inner">
+                        <div class="si-inner">
+                            <ul class="main-menu">
+                                <li class="sub-menu">
+                                    <a href=""><i class="md md-now-widgets"></i> Widgets</a>
+                                    <ul>
+                                        <li><a href="widget-templates.html">Templates</a></li>
+                                        <li><a class="active" href="widgets.html">Widgets</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href=""><i class="md md-view-list"></i> Tables</a>
+                                    <ul>
+                                        <li><a href="tables.html">Normal Tables</a></li>
+                                        <li><a href="data-tables.html">Data Tables</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                <section id="content">
+                    <div id="conteiner-pages" class="container" ng-view>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Javascript Libraries -->
+            <script src="js/jquery-2.1.1.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="vendors/flot/jquery.flot.min.js"></script>
+            <script src="vendors/flot/jquery.flot.resize.min.js"></script>
+            <script src="vendors/flot/plugins/curvedLines.js"></script>
+            <script src="vendors/sparklines/jquery.sparkline.min.js"></script>
+            <script src="vendors/easypiechart/jquery.easypiechart.min.js"></script>
+            <script src="vendors/fullcalendar/lib/moment.min.js"></script>
+            <script src="vendors/fullcalendar/fullcalendar.min.js"></script>
+            <script src="vendors/simpleWeather/jquery.simpleWeather.min.js"></script>
+            <script src="vendors/auto-size/jquery.autosize.min.js"></script>
+            <script src="vendors/nicescroll/jquery.nicescroll.min.js"></script>
+            <script src="vendors/waves/waves.min.js"></script>
+            <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+            <script src="vendors/sweet-alert/sweet-alert.min.js"></script>
+            <script src="js/flot-charts/curved-line-chart.js"></script>
+            <script src="js/flot-charts/line-chart.js"></script>
+            <script src="js/charts.js"></script>
+            <script src="js/charts.js"></script>
+            <script src="js/functions.js"></script>
+            <script src="js/demo.js"></script>
+                <!--Angular Apps -->
+            <script src="app/app.js"></script>
+            <script src="app/components/routes/routes.js"></script>
+            <!--Controllers -->
+        <script src="app/components/controllers/paginaInicioController.js"></script>
+         <!--Service-->
+        <script src="app/components/services/mainPageServices.js"></script>
+        <script src="app/components/services/anuncioServices.js"></script>
+         <!--Directives-->
+        <script src="app/components/directives/anuncioDirective.js"></script>
+        <script src="app/components/directives/checkTextAnuncioDirective.js"></script>
+        
+        </body>
+    </html>
