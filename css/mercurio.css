@@ -1,1 +1,67 @@
+/* Menu bar */
+
+.header-inner .menu-items {
+  	position: absolute;
+    /*height: 35px;*/
+    top: 6px;
+  
+}
+
+.header-inner .menu-items .navbar {
+ 	margin-bottom: 0 !important;
+ 	border: none;
+    left: 24%;
+
+    /*height: 35px;*/
+  /*padding: 6px 10px;*/
+}
+@media (max-width: 1094px) {
+  .header-inner .menu-items .navbar {
+   	left: 0; 
+ }
+}
+
+
+.navbar-default .navbar-nav > li > a {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 100;
+    font-family: 'Arvo', serif;
+}
+
+@media (max-width: 940px) {
+  .navbar-default .navbar-nav > li > a {
+   	 font-size: 12px;
+ }
+}
+
+
+.navbar-default .navbar-nav > li > a:hover {
+     -webkit-animation: pulse 1s;
+    -moz-animation: pulse 1s;
+    -ms-animation: pulse 1s;
+    animation: pulse 1s;
+}
+
+.menu-items .navbar-default .navbar-toggle {
+    border:none;
+}
+
+.menu-items .navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.menu-items .navbar-default .navbar-toggle:hover {
+    background-color: #F44336 !important;
+}
+.menu-items .navbar-default .navbar-toggle:hover .icon-bar {
+    background-color: #fff !important;
+}
+
+.menu-items .navbar-default .navbar-toggle:focus {
+    background-color: #F44336 !important;
+}
+.menu-items .navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #fff !important;
+}
+
 
