@@ -4,5 +4,14 @@ mercurioApp.config(function ($routeProvider) {
         templateUrl: 'app/templates/routeTemplates/paginaInicio.html',
         controller: 'paginaInicioController'
     })
+	.when('/ver/anuncio/:id/:tipoAnuncio', {
+        templateUrl: 'app/templates/routeTemplates/verAnuncios.html',
+        controller: 'verAnuncioController'
+    })  
+    .when('/ver/anuncio/:id/:tipoAnuncio/:empresaId', {
+        templateUrl: 'app/templates/routeTemplates/verAnuncios.html',
+        controller: 'verAnuncioController'
+    })  
 
+	 
 });

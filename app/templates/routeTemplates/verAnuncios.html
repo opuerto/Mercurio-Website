@@ -1,0 +1,55 @@
+<div class="row m-t-15" id="anuncio-especifico" ng-show="anuncio.anuncioByIdResult">
+    <div class="card" id="profile-main">
+        <nice-scroll></nice-scroll>
+        <div class="pm-overview c-overflow">
+            <div class="pmo-pic hidden-xs">
+                <div class="p-relative" ng-if="tipoAnuncio === 'empresa'">
+                    <img ng-src="http://localapi.mercurio.hn/api/v0.1/logoanuncioempresa/empresas/{{empresaId}}/logos" class="pv-main" alt="">
+                </div>
+                <div class="p-relative" ng-if="tipoAnuncio === 'admin'">
+                    <img ng-src="http://localapi.mercurio.hn/api/v0.1/anuncio/logoanuncio/{{anuncio.anuncioByIdResult.id}}" class="pv-main" alt="">
+                </div>
+                <div class="pmo-stat bgm-red">
+                    <h2 class="m-0 c-white">1562</h2>
+                    Personas han visto esta oferta
+                </div>
+            </div>
+
+            <div id="info-aplicar" class="pmo-block pmo-contact">
+                <h2>INFORMACION PARA APLICAR</h2>
+
+                <ul>
+                    <li ng-if="anuncio.anuncioByIdResult.telefono_contacto != null && anuncio.anuncioByIdResult.telefono_contacto != 'null'"><i class="md md-phone"></i><span class="f-500 c-black"> {{anuncio.anuncioByIdResult.telefono_contacto}}</span></li>
+                    <li ng-if="anuncio.anuncioByIdResult.email_contacto != null && anuncio.anuncioByIdResult.email_contacto != 'null'"><i class="md md-email"></i><span class="f-500 c-black"> {{anuncio.anuncioByIdResult.email_contacto}}</span></li>
+                    <li><i class="md md-location-city"></i> <span class="f-500 c-black">{{anuncio.anuncioByIdResult.ciudad}}</span></li>
+                    <li ng-if="anuncio.anuncioByIdResult.link_website != null && anuncio.anuncioByIdResult.link_website != 'null'"><i class="md md-link"></i><span class="f-500 c-black" ng-bind="anuncio.anuncioByIdResult.link_website"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pm-body clearfix">
+            <ul class="tab-nav tn-justified">
+                <li class="active waves-effect bgm-red"><H1 class="c-white">{{anuncio.nombreEmpresa | uppercase}}</H1></li>
+            </ul>
+            <div class="pmb-block">
+                <div class="pmbb-header">
+                    <h2 class="f-700"><i class="md md-work m-r-5"></i> {{anuncio.anuncioByIdResult.titulo | uppercase}}</h2>
+                </div>
+                <div class="pmbb-body p-l-30">
+                    <div class="pmbb-view" ng-bind-html="showDescripcionHtml(anuncio.anuncioByIdResult.descripcion)">
+                        <!-- o-mostrar aqui el html -->
+                    </div>
+                </div>
+            </div>
+            <div class="pmb-block">
+                <div class="pmbb-body p-l-30">
+                    <div class="pmbb-view">
+                        <dl class="dl-horizontal c-black">
+                            <dt><h4><i class="md md md-event"></i> Aplica antes del: </h4></dt>
+                            <dd><h4>{{anuncio.anuncioByIdResult.fecha_limite_aplicar | date:'dd/MM/yyyy'}}</h4></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

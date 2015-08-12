@@ -16,7 +16,7 @@
 .header-inner .menu-items .navbar {
  	margin-bottom: 0 !important;
  	border: none;
-    left: 24%;
+    left: 4%;
 
     /*height: 35px;*/
   /*padding: 6px 10px;*/
@@ -102,6 +102,12 @@ a .anuncios ul li
   color:#5e5e5e;
 }
 
+/*Estilo para ver anuncio en especifico*/
+
+#anuncio-especifico #profile-main
+{
+  min-height: 712px;
+}
 
 
 

@@ -16,6 +16,50 @@ mercurioApp.service('anuncioService', ['$resource', '$cookies', '$http','mainPag
             return promise;
         };
 	}
+    this.getAnuncioByID = function(anuncioId,empresaId)
+    {
+         if (token) {
+            var url = url_request+"/api/v0.1/anuncio/empresas/" + empresaId + "/anuncios/" + anuncioId;
+            var promise = $http({
+                method: 'GET',
+                url: url,
+                params: {
+                    access_token: token
+                }
+            });
+            return promise;
+        };
+    }
+
+    this.getEmpresaNombre = function(id)
+    {
+        if (token) {
+            var url = url_request+"/api/v0.1/empresa/getNombreEmpresa/" + id;
+            var promise = $http({
+                method: 'GET',
+                url: url,
+                params: {
+                    access_token: token
+                }
+            });
+            return promise;
+        };
+    }
+
+    this.getAdminAnuncioById = function(id)
+    {
+        if (token) {
+            var url = url_request+"/api/v0.1/anuncio/adminanunciobyid/" + id;
+            var promise = $http({
+                method: 'GET',
+                url: url,
+                params: {
+                    access_token: token
+                }
+            });
+            return promise;
+        }    
+    }
 
 
 }]);
