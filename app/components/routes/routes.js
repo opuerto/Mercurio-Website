@@ -12,6 +12,10 @@ mercurioApp.config(function ($routeProvider) {
         templateUrl: 'app/templates/routeTemplates/verAnuncios.html',
         controller: 'verAnuncioController'
     })  
+    .when('/registrate', {
+        templateUrl: 'app/templates/routeTemplates/registrate.html',
+        controller: 'registraController'
+    })  
 
 	 
 });

@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card bs-item bs-item z-depth-1">
+            <div id="markup-registra">
+                <h1>Registra Gratis</h1><h2>tu empresa</h2>
+                <div id="down-arrow">
+                    <h1><i class="md md-expand-more"></i></h1>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 60px; padding-right: 20px; padding-left: 20px;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <form ng-submit="registrarEmpresa()">
+                        <div id="bloc-nombre" class="input-group">
+                            <span class="input-group-addon"><i class="md md-account-circle"></i></span>
+                            <div class="fg-line">
+                                <input type="text" input-focus-blue ng-model="registra.nombreUsuario" class="form-control" placeholder="Nombre del usuario">
+                            </div>
+                        </div>
+                        <small id="nombre-text" style="display:none" class="help-block c-red"></small>
+                        <div id="bloc-apellido" class="m-t-15 input-group">
+                            <span class="input-group-addon"><i class="md md-account-circle"></i></span>
+                            <div class="fg-line">
+                                <input type="text" input-focus-blue ng-model="registra.apellido" class="form-control" placeholder="Apellido del usuario">
+                            </div>
+                        </div>
+                        <small id="apellido-text" style="display:none" class="help-block c-red"></small>
+                        <div id="bloc-email" class="m-t-15 input-group">
+                            <span class="input-group-addon"><i class="md md-email"></i></span>
+                            <div class="fg-line">
+                                <input type="text" input-focus-blue ng-model="registra.email" class="form-control" placeholder="email del usuario">
+                            </div>
+                        </div>
+                        <small id="email-text" style="display:none" class="help-block c-red"></small>
+                        <div id="bloc-password" class="m-t-15 input-group">
+                            <span class="input-group-addon"><i class="md md-vpn-key"></i></span>
+                            <div class="fg-line">
+                                <input type="password" input-focus-blue ng-model="registra.password" class="form-control" placeholder="password">
+                            </div>
+                        </div>
+                        <small id="password-text" style="display:none" class="help-block c-red"></small>
+                        <div id="bloc-nombreEmpresa" class="m-t-15 input-group">
+                            <span class="input-group-addon"><i class="md md-store-mall-directory"></i></span>
+                            <div class="fg-line">
+                                <input type="text" input-focus-blue ng-model="registra.nombreEmpresa" class="form-control" placeholder="Nombre de la empresa">
+                            </div>
+                        </div>
+                        <small id="nombreEmpresa-text" style="display:none" class="help-block c-red"></small>
+                        <div id="bloc-pais" class="input-group m-t-10">
+                            <span class="input-group-addon"><i class="md md-public"></i></span>
+                            <div class="col-sm-12">
+                                <div class="fg-line select">
+                                	<select class="form-control" input-focus-blue  ng-options="o as o for o in listaPaises" ng-init="pais = listaPaises[74]" ng-model="pais"></select>
+                            	</div>
+                       		 </div>
+                    	</div>
+                    	<small id="pais-text" style="display:none" class="help-block c-red"></small>
+                    	<div id="bloc-rubro" class="input-group m-t-15">
+                        	<span class="input-group-addon"><i class="md md-assignment"></i></span>
+                       		 <div class="col-sm-12">
+                            	<div class="fg-line select">
+                                	<select input-focus-blue class="form-control" ng-init="rubro = registra.rubro[0].id" ng-options="r.id as r.nombre for r in registra.rubro" ng-model="rubro"></select>
+                             	</div>
+                            </div>
+                        </div>
+                        <small id="rubro-text" style="display:none" class="help-block c-red"></small>
+                        <div class="checkbox m-t-20">
+                            <label>
+                                <input type="checkbox"  ng-model="terminos.value1"  ng-true-value="'SI'" ng-false-value="'NO'">
+                                <i class="input-helper"></i>
+                                Acepta los terminos y condiciones de uso
+                            </label>
+                            <small id="terminos-text" style="display:none" class="help-block c-red"></small>
+                        </div>
+                        <input type="submit" class="btn btn-success btn-block waves-effect waves-button waves-float" value="Registrar">
+                    </form>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
