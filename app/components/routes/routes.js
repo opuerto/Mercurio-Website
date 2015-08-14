@@ -1,4 +1,4 @@
-mercurioApp.config(function ($routeProvider) {
+mercurioApp.config(['$routeProvider','$httpProvider','jwtInterceptorProvider',function ($routeProvider,$httpProvider,jwtInterceptorProvider) {
 	$routeProvider
 	  .when('/', {
         templateUrl: 'app/templates/routeTemplates/paginaInicio.html',
@@ -16,6 +16,15 @@ mercurioApp.config(function ($routeProvider) {
         templateUrl: 'app/templates/routeTemplates/registrate.html',
         controller: 'registraController'
     })  
-
+     .otherwise({
+               redirectTo: '/'
+    })
+    jwtInterceptorProvider.urlParam = 'token';
+      jwtInterceptorProvider.tokenGetter = function() {
+        return localStorage.getItem('token');
+      }
+      $httpProvider.interceptors.push('jwtInterceptor');
+   
+    
 	 
-});
+}]);

@@ -1,5 +1,10 @@
-mercurioApp.controller('registraController',['$cookies','$scope','$location','$http','$timeout','$resource','$log','$routeParams','$anchorScroll','$sce','mainPageService','anuncioService','registraService','paisesService',
-	function($cookies,$scope,$location,$http,$timeout,$resource,$log,$routeParams,$anchorScroll,$sce,mainPageService,anuncioService,registraService,paisesService) 
+mercurioApp.controller('registraController',['$cookies','$scope','$location',
+	'$http','$timeout','$resource','$log','$routeParams','$anchorScroll','$sce',
+	'mainPageService','anuncioService',
+	'registraService','paisesService','$localStorage','$sessionStorage','jwtHelper',
+	function($cookies,$scope,$location,$http,$timeout,$resource,
+		$log,$routeParams,$anchorScroll,$sce,mainPageService,
+		anuncioService,registraService,paisesService,$localStorage,$sessionStorage,jwtHelper) 
 {
 	$anchorScroll();
 	$scope.registra = {};
@@ -141,20 +146,26 @@ mercurioApp.controller('registraController',['$cookies','$scope','$location','$h
 			}
 			registraService.registraUsuario(data).success(function(data)
 			{
-				if(data.codigo === 200)
+				
+				 
+				 localStorage.setItem('token',data.token);
+				 //var tokenPayload = jwtHelper.decodeToken(data.token);
+				 if(data.token)
 				{
+					 
 					datos_empresa =
 					{
 						nombre:$scope.registra.nombreEmpresa,
 						pais:$scope.pais,
 						rubro_id:$scope.rubro,
 					}
-					registraService.CrearEmpresa(datos_empresa,data.user.id).success(function(data)
+					registraService.CrearEmpresa(datos_empresa).success(function(data)
 					{
-						$log.log(data);
+							//redirecciono con el token 					
+						window.location = "http://localapi.mercurio.hn/aplicacion?token="+localStorage.getItem('token');
 					}).error(function(data)
 					{
-						$log.log(data);
+						
 					})
 				}	
 			}).
@@ -166,5 +177,6 @@ mercurioApp.controller('registraController',['$cookies','$scope','$location','$h
 		};
 
 	}
+
 
 }]);
