@@ -2,6 +2,14 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
     function($cookies, $scope, $location, $http, $timeout, $resource, $log, $routeParams, $anchorScroll, $sce, mainPageService, anuncioService) {
         $anchorScroll();
         $scope.anuncios = {};
+        $scope.credentials = {}
+        $scope.credentials.email;
+        $scope.credentials.password;
+        $scope.credentials.recordarme = 
+        {
+        value1 : 'NO'
+       
+        }
         var token = mainPageService.token;
         if (!token) {
             mainPageService.getToken().success(function(data) {
@@ -27,10 +35,10 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
         anuncioService.getTodosLosAnuncios().success(function(data) {
             $scope.anuncios.anunciosResult = data.datos;
             $scope.anuncios.NumAnuncios = data.datos.length;
-        }).error(function(data) {
-            $log.log(data)
+        }).error(function(data,status) {
+            
             //si el token no existe en la base de datos
-            if (data.error == "access_denied") {
+            if (data.error == "access_denied" || status === 500) {
             	//volvemos a crear un token y a guardarlo
                 mainPageService.getToken().success(function(data) {
                 	$cookies.remove('token_mercuriowebsite');
@@ -45,5 +53,6 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
                 })
             };
         })
-    }
-]);
+
+      
+ }]);

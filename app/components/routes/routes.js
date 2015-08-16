@@ -1,4 +1,4 @@
-mercurioApp.config(['$routeProvider','$httpProvider','jwtInterceptorProvider',function ($routeProvider,$httpProvider,jwtInterceptorProvider) {
+mercurioApp.config(['$routeProvider','$httpProvider','jwtInterceptorProvider','cfpLoadingBarProvider',function ($routeProvider,$httpProvider,jwtInterceptorProvider,cfpLoadingBarProvider) {
 	$routeProvider
 	  .when('/', {
         templateUrl: 'app/templates/routeTemplates/paginaInicio.html',
@@ -19,6 +19,7 @@ mercurioApp.config(['$routeProvider','$httpProvider','jwtInterceptorProvider',fu
      .otherwise({
                redirectTo: '/'
     })
+     cfpLoadingBarProvider.includeSpinner = false;
     jwtInterceptorProvider.urlParam = 'token';
       jwtInterceptorProvider.tokenGetter = function() {
         return localStorage.getItem('token');

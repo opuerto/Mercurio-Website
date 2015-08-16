@@ -21,7 +21,7 @@ mercurioApp.controller('registraController',['$cookies','$scope','$location',
        
 	}
 
-
+	$scope.errores = '';
 
 	// para guardar los rubros 
 	var rubro;
@@ -43,11 +43,58 @@ mercurioApp.controller('registraController',['$cookies','$scope','$location',
 			$scope.registra.rubro[i+1] = {id:rubro[i].id,nombre:angular.uppercase(rubro[i].nombre)};	
 		}	
 		//$log.log(rubro);
+	}).error(function(data)
+	{
+		if (data.error == "access_denied" || status === 500) {
+                $http.get('/accesstokenC').success(function(result) {
+                    // Setting a cookie
+                    time = new Date(1451606400 * 1000);
+                    if (!result.mensaje) {
+                        $cookies.put('token_mercuriowebsite', result.access_token, {
+                            'expires': time
+                        });
+                        location.reload();
+                    } else {
+                        window.location = "http://mercurio.hn";
+                    }
+                }).error(function() {
+                    window.location = "http://mercurio.hn"
+                })
+            };
 	});
 
 	//Lista de paises del mundo
 	$scope.pais;
 	$scope.listaPaises = paisesService.getPaises();
+
+	$scope.encontrarError = function(mensaje)
+	{
+		inputsNames = ["nombre","apellido","password","terminos","email"];
+		var n=0;
+		if (mensaje[0].search(inputsNames[0]) > 0) 
+		{
+			$scope.errores = mensaje;
+		}
+		else if(mensaje[0].search(inputsNames[1]) > 0)
+		{
+			$scope.errores = mensaje;
+		}	
+		else if(mensaje[0].search(inputsNames[2]) > 0)
+		{
+			$scope.errores = mensaje;
+		}
+		else if(mensaje[0].search(inputsNames[3]) > 0)	
+		{
+		 $scope.errores = mensaje;
+		}
+		else if(mensaje[0].search(inputsNames[4]) > 0)
+		{
+			
+			$scope.errores = mensaje;
+		}
+		
+	}
+
 	
 	$scope.validateFormRegistraEmpresa = function(inputs)
 
@@ -165,13 +212,15 @@ mercurioApp.controller('registraController',['$cookies','$scope','$location',
 						window.location = "http://localapi.mercurio.hn/aplicacion?token="+localStorage.getItem('token');
 					}).error(function(data)
 					{
-						
+						var mensaje = data.mensaje;
+						$scope.encontrarError(mensaje);	
 					})
 				}	
 			}).
 			error(function(data)
 			{
-
+				var mensaje = data.mensaje;
+				$scope.encontrarError(mensaje);
 			})
 
 		};

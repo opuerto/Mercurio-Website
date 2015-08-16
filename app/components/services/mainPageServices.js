@@ -14,4 +14,15 @@ mercurioApp.service('mainPageService', ['$resource', '$cookies', '$http', functi
             return promise;
 	}
 
+	this.getJwtToken = function(data)
+	{
+		if (token_website) 
+		{
+			 data.access_token = token_website;
+			 //data.token = $localStorage.token;
+            promise = $http.post(urlR+"/jwt/token",  data);
+            return promise;
+		};
+	}
+
 }])

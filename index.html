@@ -13,210 +13,195 @@
         <link href="vendors/material-icons/material-design-iconic-font.min.css" rel="stylesheet">
         <link href="vendors/socicon/socicon.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Arvo:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
-            <!-- CSS -->
-            <link href="css/app.min.1.css" rel="stylesheet">
-            <link href="css/app.min.2.css" rel="stylesheet">
-            <link href="css/mercurio.css" rel="stylesheet">
-            <!--Scripts-->
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
-            <script src="//code.angularjs.org/1.4.0/angular-route.min.js"></script>
-            <script src="//code.angularjs.org/1.4.0/angular-resource.min.js"></script>
-            <script src="//code.angularjs.org/1.4.0/angular-cookies.min.js"></script>
-            <script src="/js/angular-sanitize.min.js"></script>
-            <script src="/js/angular-animate.min.js"></script>
-            <script type="text/javascript" src="//cdn.auth0.com/js/lock-7.js"></script>
-            <script type="text/javascript" src="//cdn.auth0.com/w2/auth0-angular-4.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
-            <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-        </head>
-        <body>
-            <header id="header" class="bgm-red">
-                <ul class="header-inner">
-                    <li id="menu-trigger" data-trigger="#sidebar">
-                        <div class="line-wrap">
-                            <div class="line top"></div>
-                            <div class="line center"></div>
-                            <div class="line bottom"></div>
-                        </div>
-                    </li>
-                    <li class="logo hidden-xs">
-                        <a href="index.html">Mercurio.hn</a>
-                    </li>
-                    <li class="menu-items" id="menu-principal">
-                        <nav class="navbar navbar-default bgm-red">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="/#/"><i class="md md-view-module"></i> Trabajos</a></li>
-                                        <li><a href="#/registrate"><i class="md md-accessibility"></i> Registra tu empresa</a></li>
-                                        <li><a href="#"><i class="md md-email"></i> Contactanos</a></li>
-                                    </ul>
-                                </div>
+            <link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+                <!-- CSS -->
+                <link href="css/app.min.1.css" rel="stylesheet">
+                <link href="css/app.min.2.css" rel="stylesheet">
+                 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.css' type='text/css' media='all' />
+                <link href="css/mercurio.css" rel="stylesheet">
+                <!--Scripts-->
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+                <script src="//code.angularjs.org/1.4.0/angular-route.min.js"></script>
+                <script src="//code.angularjs.org/1.4.0/angular-resource.min.js"></script>
+                <script src="//code.angularjs.org/1.4.0/angular-cookies.min.js"></script>
+                <script src="/js/angular-sanitize.min.js"></script>
+                <script src="/js/angular-animate.min.js"></script>
+                <script type="text/javascript" src="//cdn.auth0.com/js/lock-7.js"></script>
+                <script type="text/javascript" src="//cdn.auth0.com/w2/auth0-angular-4.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+                <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+            </head>
+            <body ng-controller="globalPage">
+                <header id="header" class="bgm-red">
+                    <ul class="header-inner">
+                        <li id="menu-trigger" data-trigger="#sidebar">
+                            <div class="line-wrap">
+                                <div class="line top"></div>
+                                <div class="line center"></div>
+                                <div class="line bottom"></div>
                             </div>
-                        </nav>
-                    </li>
-                    <li class="pull-right">
-                        <ul class="top-menu">
-                            <li id="toggle-width">
-                                <div class="toggle-switch">
-                                    <input id="tw-switch" type="checkbox" hidden="hidden">
-                                    <label for="tw-switch" class="ts-helper"></label>
-                                </div>
-                            </li>
-                            <li id="top-search">
-                                <a class="tm-search" href=""></a>
-                            </li>
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="tm-login" href=""></a>
-                                <div class="dropdown-menu dropdown-menu-lg pull-right">
-                                    <div class="listview">
-                                        <div class="lv-header">
-                                            Iniciar sesión empresas
-                                        </div>
-                                        <div class="lv-body c-overflow">
-                                            <div class="media">
-                                                <div class="pull-left">
-                                                    <img class="lv-img-sm" src="img/profile-pics/1.jpg" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <input type="text">
-                                                </div>
-                                            </div>
-                                            <a class="lv-item" href="">
-                                            <div class="media">
-                                                <div class="pull-left">
-                                                    <img class="lv-img-sm" src="img/profile-pics/2.jpg" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="lv-title">Jonathan Morris</div>
-                                                    <small class="lv-small">Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</small>
-                                                </div>
-                                            </div>
-                                            </a>
-                                            <a class="lv-item" href="">
-                                            <div class="media">
-                                                <div class="pull-left">
-                                                    <img class="lv-img-sm" src="img/profile-pics/3.jpg" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="lv-title">Fredric Mitchell Jr.</div>
-                                                    <small class="lv-small">Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</small>
-                                                </div>
-                                            </div>
-                                            </a>
-                                            <a class="lv-item" href="">
-                                            <div class="media">
-                                                <div class="pull-left">
-                                                    <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="lv-title">Glenn Jecobs</div>
-                                                    <small class="lv-small">Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</small>
-                                                </div>
-                                            </div>
-                                            </a>
-                                            <a class="lv-item" href="">
-                                            <div class="media">
-                                                <div class="pull-left">
-                                                    <img class="lv-img-sm" src="img/profile-pics/4.jpg" alt="">
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="lv-title">Bill Phillips</div>
-                                                    <small class="lv-small">Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</small>
-                                                </div>
-                                            </div>
-                                            </a>
-                                        </div>
-                                        <a class="lv-footer" href="">View All</a>
+                        </li>
+                        <li class="logo hidden-xs">
+                            <a href="index.html">Mercurio.hn</a>
+                        </li>
+                        <li class="menu-items" id="menu-principal">
+                            <nav class="navbar navbar-default bgm-red">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="/#/"><i class="md md-view-module"></i> Trabajos</a></li>
+                                            <li><a href="#/registrate"><i class="md md-accessibility"></i> Registra tu empresa</a></li>
+                                            <li><a href="#"><i class="md md-email"></i> Contactanos</a></li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- Top Search Content -->
-                <div id="top-search-wrap">
-                    <input type="text">
-                    <i id="top-search-close">&times;</i>
-                </div>
-            </header>
-            <section id="main">
-                <aside id="sidebar">
-                    <div class="sidebar-inner">
-                        <div class="si-inner">
-                            <ul class="main-menu">
-                                <li class="sub-menu">
-                                    <a href=""><i class="md md-now-widgets"></i> Widgets</a>
-                                    <ul>
-                                        <li><a href="widget-templates.html">Templates</a></li>
-                                        <li><a class="active" href="widgets.html">Widgets</a></li>
-                                    </ul>
+                            </nav>
+                        </li>
+                        <li class="pull-right">
+                            <ul class="top-menu">
+                                <li id="toggle-width">
+                                    <div class="toggle-switch">
+                                        <input id="tw-switch" type="checkbox" hidden="hidden">
+                                        <label for="tw-switch" class="ts-helper"></label>
+                                    </div>
                                 </li>
-                                <li class="sub-menu">
-                                    <a href=""><i class="md md-view-list"></i> Tables</a>
-                                    <ul>
-                                        <li><a href="tables.html">Normal Tables</a></li>
-                                        <li><a href="data-tables.html">Data Tables</a></li>
-                                    </ul>
+                                <li id="top-search">
+                                    <a class="tm-search" href=""></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" class="tm-login" href=""></a>
+                                    <div class="dropdown-menu dropdown-menu-lg pull-right">
+                                        <div class="listview">
+                                            <div class="lv-header">
+                                                Iniciar sesión empresas
+                                            </div>
+                                            <div class="lv-body c-overflow">
+                                            <form ng-submit="login()">
+                                                <div class="col-sm-12" id="login-box">
+                                                    <div class="input-group m-b-20">
+                                                        <span class="input-group-addon"><i class="md md-person"></i></span>
+                                                        <div class="fg-line">
+                                                            <input type="text" class="form-control" ng-model="credentials.email" placeholder="email">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group m-b-20">
+                                                        <span class="input-group-addon"><i class="md md md-vpn-key"></i></span>
+                                                        <div class="fg-line">
+                                                            <input type="password" class="form-control" ng-model="credentials.password" placeholder="Password">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" ng-model="credentials.recordarme.value1" ng-true-value="'SI'" ng-false-value="'NO'">
+                                                                <i class="input-helper"></i>
+                                                                Recordarme
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <button class="btn btn-danger btn-block waves-effect" >Iniciar Sesión</button>
+                                                        
+                                                    </div>
+
+                                                </div>
+                                                    
+                                                </form>
+                                            </div>
+                                            <div class="lv-footer">
+                                              <div class="col-sm-6" id="forget-pass"><a class="c-black" href="">Olvide mi contrasena</a></div>  
+                                              <div class="col-sm-6" id="registra"><a class="c-black" href="#/registrate">Registra tu empresa</a></div>  
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
+                        </li>
+                    </ul>
+                    <!-- Top Search Content -->
+                    <div id="top-search-wrap">
+                        <input type="text">
+                        <i id="top-search-close">&times;</i>
+                    </div>
+                </header>
+                <section id="main">
+                    <aside id="sidebar">
+                        <div class="sidebar-inner">
+                            <div class="si-inner">
+                                <ul class="main-menu">
+                                    <li class="sub-menu">
+                                        <a href=""><i class="md md-now-widgets"></i> Widgets</a>
+                                        <ul>
+                                            <li><a href="widget-templates.html">Templates</a></li>
+                                            <li><a class="active" href="widgets.html">Widgets</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="sub-menu">
+                                        <a href=""><i class="md md-view-list"></i> Tables</a>
+                                        <ul>
+                                            <li><a href="tables.html">Normal Tables</a></li>
+                                            <li><a href="data-tables.html">Data Tables</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </aside>
-                <section id="content">
-                    <div id="conteiner-pages" class="container" ng-view>
-                    </div>
+                    </aside>
+                    <section id="content">
+                        <div id="conteiner-pages" class="container" ng-view>
+                        </div>
+                    </section>
                 </section>
-            </section>
-
-            <!-- Javascript Libraries -->
-            <script src="js/jquery-2.1.1.min.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="vendors/flot/jquery.flot.min.js"></script>
-            <script src="vendors/flot/jquery.flot.resize.min.js"></script>
-            <script src="vendors/flot/plugins/curvedLines.js"></script>
-            <script src="vendors/sparklines/jquery.sparkline.min.js"></script>
-            <script src="vendors/easypiechart/jquery.easypiechart.min.js"></script>
-            <script src="vendors/fullcalendar/lib/moment.min.js"></script>
-            <script src="vendors/fullcalendar/fullcalendar.min.js"></script>
-            <script src="vendors/simpleWeather/jquery.simpleWeather.min.js"></script>
-            <script src="vendors/auto-size/jquery.autosize.min.js"></script>
-            <script src="vendors/nicescroll/jquery.nicescroll.min.js"></script>
-            <script src="vendors/waves/waves.min.js"></script>
-            <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
-            <script src="vendors/sweet-alert/sweet-alert.min.js"></script>
-            <script src="js/flot-charts/curved-line-chart.js"></script>
-            <script src="js/flot-charts/line-chart.js"></script>
-            <script src="js/charts.js"></script>
-            <script src="js/charts.js"></script>
-            <script src="js/functions.js"></script>
-            <script src="js/demo.js"></script>
+                <!-- Javascript Libraries -->
+                <script src="js/jquery-2.1.1.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="vendors/flot/jquery.flot.min.js"></script>
+                <script src="vendors/flot/jquery.flot.resize.min.js"></script>
+                <script src="vendors/flot/plugins/curvedLines.js"></script>
+                <script src="vendors/sparklines/jquery.sparkline.min.js"></script>
+                <script src="vendors/easypiechart/jquery.easypiechart.min.js"></script>
+                <script src="vendors/fullcalendar/lib/moment.min.js"></script>
+                <script src="vendors/fullcalendar/fullcalendar.min.js"></script>
+                <script src="vendors/simpleWeather/jquery.simpleWeather.min.js"></script>
+                <script src="vendors/auto-size/jquery.autosize.min.js"></script>
+                <script src="vendors/nicescroll/jquery.nicescroll.min.js"></script>
+                <script src="vendors/waves/waves.min.js"></script>
+                <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+                <script src="vendors/sweet-alert/sweet-alert.min.js"></script>
+                <script src="js/flot-charts/curved-line-chart.js"></script>
+                <script src="js/flot-charts/line-chart.js"></script>
+                <script src="js/charts.js"></script>
+                <script src="js/charts.js"></script>
+                <script src="js/functions.js"></script>
+                <script src="js/demo.js"></script>
                 <!--Angular Apps -->
-            <script src="app/app.js"></script>
-            <script src="app/components/routes/routes.js"></script>
-            <!--Controllers -->
-        <script src="app/components/controllers/paginaInicioController.js"></script>
-        <script src="app/components/controllers/verAnuncioController.js"></script>
-        <script src="app/components/controllers/registraController.js"></script>
-         <!--Service-->
-        <script src="app/components/services/mainPageServices.js"></script>
-        <script src="app/components/services/anuncioServices.js"></script>
-        <script src="app/components/services/registraServices.js"></script>
-        <script src="app/components/services/paisesServices.js"></script>
-        <!--Factory-->
-        <script src="app/components/factories/authFactory.js"></script>
-         <!--Directives-->
-        <script src="app/components/directives/anuncioDirective.js"></script>
-        <script src="app/components/directives/checkTextAnuncioDirective.js"></script>
-        
-        </body>
-    </html>
+                <script src="app/app.js"></script>
+                <script src="app/components/routes/routes.js"></script>
+                <!--Controllers -->
+                <script src="app/components/controllers/paginaInicioController.js"></script>
+                <script src="app/components/controllers/globalPageController.js"></script>
+                <script src="app/components/controllers/verAnuncioController.js"></script>
+                <script src="app/components/controllers/registraController.js"></script>
+                <!--Service-->
+                <script src="app/components/services/mainPageServices.js"></script>
+                <script src="app/components/services/anuncioServices.js"></script>
+                <script src="app/components/services/registraServices.js"></script>
+                <script src="app/components/services/paisesServices.js"></script>
+                <!--Factory-->
+                <script src="app/components/factories/authFactory.js"></script>
+                <!--Directives-->
+                <script src="app/components/directives/anuncioDirective.js"></script>
+                <script src="app/components/directives/checkTextAnuncioDirective.js"></script>
+                <!-- This is the script for loading bar -->
+        <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.js'></script>
+            </body>
+        </html>

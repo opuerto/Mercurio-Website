@@ -141,6 +141,29 @@ a .anuncios ul li
 }
 
 
+/*Estilo para el login */
+.lv-body #login-box
+{
+  padding-top: 40px;
+}
+
+.lv-footer #forget-pass
+{
+  padding: 10px;
+}
+
+.lv-footer #registra
+{
+   padding: 10px;
+}
+
+/*changing the color of the loading bar*/
+#loading-bar .bar {
+  
+  background: #fff !important;
+   height: 3px !important;
+  
+}
 
 /* hide the ul element in anuncios when */
 /* No greater than 900px, no less than 400px */
