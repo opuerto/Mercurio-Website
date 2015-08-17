@@ -1,5 +1,9 @@
 /* Menu bar */
-
+body.login-content:before {
+  
+  background: #F44336;
+  
+}
 .header-inner .menu-items {
   	position: absolute;
     /*height: 35px;*/
@@ -155,6 +159,18 @@ a .anuncios ul li
 .lv-footer #registra
 {
    padding: 10px;
+}
+
+/*Estilo para reactivar contrasena*/
+
+.contrasena-h1
+{
+  font-size: 25px !important;
+}
+
+.contrasena-h2
+{
+  font-size: 20px !important;
 }
 
 /*changing the color of the loading bar*/

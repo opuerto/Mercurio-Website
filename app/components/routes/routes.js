@@ -16,6 +16,14 @@ mercurioApp.config(['$routeProvider','$httpProvider','jwtInterceptorProvider','c
         templateUrl: 'app/templates/routeTemplates/registrate.html',
         controller: 'registraController'
     })  
+    .when('/reset/password', {
+        templateUrl: 'app/templates/routeTemplates/resetPassword.html',
+        controller: 'resetPasswordController'
+    }) 
+     .when('/nueva/password/:code/:id', {
+        templateUrl: 'app/templates/routeTemplates/cambiarPasswor.html',
+        controller: 'resetPasswordController'
+    })  
      .otherwise({
                redirectTo: '/'
     })

@@ -31,7 +31,7 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
                 <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
             </head>
-            <body ng-controller="globalPage">
+            <body id="body-index" ng-controller="globalPage">
                 <header id="header" class="bgm-red">
                     <ul class="header-inner">
                         <li id="menu-trigger" data-trigger="#sidebar">
@@ -117,7 +117,7 @@
                                                 </form>
                                             </div>
                                             <div class="lv-footer">
-                                              <div class="col-sm-6" id="forget-pass"><a class="c-black" href="">Olvide mi contrasena</a></div>  
+                                              <div class="col-sm-6" id="forget-pass"><a class="c-black" href="#/reset/password">Olvide mi contrasena</a></div>  
                                               <div class="col-sm-6" id="registra"><a class="c-black" href="#/registrate">Registra tu empresa</a></div>  
                                             </div>
                                             
@@ -191,16 +191,20 @@
                 <script src="app/components/controllers/globalPageController.js"></script>
                 <script src="app/components/controllers/verAnuncioController.js"></script>
                 <script src="app/components/controllers/registraController.js"></script>
+                <script src="app/components/controllers/resetPasswordController.js"></script>
                 <!--Service-->
                 <script src="app/components/services/mainPageServices.js"></script>
                 <script src="app/components/services/anuncioServices.js"></script>
                 <script src="app/components/services/registraServices.js"></script>
                 <script src="app/components/services/paisesServices.js"></script>
+                <script src="app/components/services/resetPasswordService.js"></script>
                 <!--Factory-->
                 <script src="app/components/factories/authFactory.js"></script>
                 <!--Directives-->
                 <script src="app/components/directives/anuncioDirective.js"></script>
                 <script src="app/components/directives/checkTextAnuncioDirective.js"></script>
+                <script src="app/components/directives/showCambiarPassTempDirective.js"></script>
+                
                 <!-- This is the script for loading bar -->
         <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.js'></script>
             </body>

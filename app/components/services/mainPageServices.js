@@ -24,5 +24,6 @@ mercurioApp.service('mainPageService', ['$resource', '$cookies', '$http', functi
             return promise;
 		};
 	}
+	
 
 }])
