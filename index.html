@@ -139,17 +139,17 @@
                             <div class="si-inner">
                                 <ul class="main-menu">
                                     <li class="sub-menu">
-                                        <a href=""><i class="md md-now-widgets"></i> Widgets</a>
+                                        <a href=""><i class="md md-now-widgets"></i> Lugar</a>
                                         <ul>
-                                            <li><a href="widget-templates.html">Templates</a></li>
-                                            <li><a class="active" href="widgets.html">Widgets</a></li>
+                                            <li ng-repeat="departamento in departamentos"><a ng-href="#/anuncios/departamento/{{departamento.id}}" ng-class="{active:departamento_id == {{departamento.id}}}" >{{departamento.nombre | uppercase}} ({{departamento.numero_anuncios}})</a></li>
+                                            
                                         </ul>
                                     </li>
                                     <li class="sub-menu">
-                                        <a href=""><i class="md md-view-list"></i> Tables</a>
+                                        <a href=""><i class="md md-view-list"></i> Categorias</a>
                                         <ul>
-                                            <li><a href="tables.html">Normal Tables</a></li>
-                                            <li><a href="data-tables.html">Data Tables</a></li>
+                                            <li  ng-repeat="categoria in categorias"><a ng-href="#/anuncios/categoria/{{categoria.id}}" ng-class="{active:categoria_id == categoria.id}">{{categoria.nombre | uppercase}} ({{categoria.numero_anuncios}})</a></li>
+                                            
                                         </ul>
                                     </li>
                                 </ul>
@@ -182,7 +182,7 @@
                 <script src="js/charts.js"></script>
                 <script src="js/charts.js"></script>
                 <script src="js/functions.js"></script>
-                <script src="js/demo.js"></script>
+               
                 <!--Angular Apps -->
                 <script src="app/app.js"></script>
                 <script src="app/components/routes/routes.js"></script>

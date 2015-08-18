@@ -5,6 +5,7 @@ mercurioApp.directive('showAnuncios', function() {
         replace: true,
         scope: {
             anuncioResult: "=",
+            sumarClick:"&",
            
         }
     }

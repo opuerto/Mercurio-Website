@@ -33,7 +33,10 @@ mercurioApp.controller('resetPasswordController',['$cookies','$scope','$location
 		            });
 		}).error(function(data)
 		{
-			$log.log(data);
+			swal({
+		                title: data.mensaje,
+		                type: "error" 
+		            });
 		})
 	}
 

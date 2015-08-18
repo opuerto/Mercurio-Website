@@ -15,15 +15,20 @@ mercurioApp.config(['$routeProvider','$httpProvider','jwtInterceptorProvider','c
     .when('/registrate', {
         templateUrl: 'app/templates/routeTemplates/registrate.html',
         controller: 'registraController'
+    }) 
+     .when('/anuncios/categoria/:ca_id', {
+        templateUrl: 'app/templates/routeTemplates/anunciocategoria.html',
+        controller: 'paginaInicioController'
+    })
+    .when('/anuncios/departamento/:de_id', {
+        templateUrl: 'app/templates/routeTemplates/anunciodepartamento.html',
+        controller: 'paginaInicioController'
     })  
     .when('/reset/password', {
         templateUrl: 'app/templates/routeTemplates/resetPassword.html',
         controller: 'resetPasswordController'
     }) 
-     .when('/nueva/password/:code/:id', {
-        templateUrl: 'app/templates/routeTemplates/cambiarPasswor.html',
-        controller: 'resetPasswordController'
-    })  
+    
      .otherwise({
                redirectTo: '/'
     })

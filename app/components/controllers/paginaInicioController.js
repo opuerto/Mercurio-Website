@@ -10,6 +10,7 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
         value1 : 'NO'
        
         }
+        
         var token = mainPageService.token;
         if (!token) {
             mainPageService.getToken().success(function(data) {
@@ -32,8 +33,15 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
                 };
             })
         };
+
+        anuncioService.sumarAnunciosMostrados();
+
+       if($location.path() == '/')
+       { 
         anuncioService.getTodosLosAnuncios().success(function(data) {
+           
             $scope.anuncios.anunciosResult = data.datos;
+
             $scope.anuncios.NumAnuncios = data.datos.length;
         }).error(function(data,status) {
             
@@ -54,5 +62,74 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
             };
         })
 
+    }
+
+        if ($location.path() == '/anuncios/departamento/'+$routeParams.de_id) 
+        {
+            anuncioService.getAnuncioByDepartamento($routeParams.de_id).success(function(data)
+            {
+                 $scope.anuncios.anunciosResult = data.datos;
+                 $scope.anuncios.NumAnuncios = data.datos.length;
+            })
+            .error(function(data,status)
+            {
+                 //si el token no existe en la base de datos
+                if (data.error == "access_denied" || status === 500) {
+                    //volvemos a crear un token y a guardarlo
+                    mainPageService.getToken().success(function(data) {
+                    $cookies.remove('token_mercuriowebsite');
+                    // Setting a cookie
+                    time = new Date(1451606400 * 1000);
+                    //si no hay errores al solicitar el cookie
+                    //guardamos una nueva cookie 
+                    $cookies.put('token_mercuriowebsite', data.access_token, {
+                        'expires': time
+                    });
+                    location.reload();
+                    })
+                };
+            })  
+
+
+
+        };
+
+         $scope.sumarClicks = function(id)
+        {
+            
+            anuncioService.sumarClick(id)
+        }
+
+        if ($location.path() == '/anuncios/categoria/'+$routeParams.ca_id) 
+        {
+             anuncioService.getAnuncioByCategoria($routeParams.ca_id).success(function(data)
+            {
+                 $scope.anuncios.anunciosResult = data.datos;
+                 $scope.anuncios.NumAnuncios = data.datos.length;
+            })
+            .error(function(data,status)
+            {
+                 //si el token no existe en la base de datos
+                if (data.error == "access_denied" || status === 500) {
+                //volvemos a crear un token y a guardarlo
+                mainPageService.getToken().success(function(data) {
+                    $cookies.remove('token_mercuriowebsite');
+                    // Setting a cookie
+                    time = new Date(1451606400 * 1000);
+                    //si no hay errores al solicitar el cookie
+                    //guardamos una nueva cookie 
+                    $cookies.put('token_mercuriowebsite', data.access_token, {
+                        'expires': time
+                    });
+                    location.reload();
+                })
+                };
+            })  
+      
+        };
+
+
+
+        
       
  }]);
