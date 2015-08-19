@@ -25,6 +25,16 @@ body.login-content:before {
     /*height: 35px;*/
   /*padding: 6px 10px;*/
 }
+.navbar-default .navbar-nav > li > a:hover {
+    
+    color:#fff;
+}
+
+ .navbar-default .navbar-nav > li > a:focus
+ {
+     color: #FFF;
+ }
+
 @media (max-width: 1094px) {
   .header-inner .menu-items .navbar {
    	left: 0; 
@@ -173,12 +183,43 @@ a .anuncios ul li
   font-size: 20px !important;
 }
 
+/* Animate the ng-view*/
+
+.container .ng-enter
+{
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.container .ng-leave
+{
+   -webkit-animation: fadeOut 1s;
+    -moz-animation: fadeOut 1s;
+    -ms-animation: fadeOut 1s;
+    animation: fadeOut 1s;
+} 
+
 /*changing the color of the loading bar*/
 #loading-bar .bar {
   
   background: #fff !important;
    height: 3px !important;
   
+}
+
+@media (max-width: 767px) {
+  #info-aplicar h2 {
+    color:#fff !important;
+  }
+  #info-aplicar ul li span {
+    color:#fff !important;
+  }
+   #info-aplicar ul li i {
+    color:#fff !important;
+  }
+
 }
 
 /* hide the ul element in anuncios when */

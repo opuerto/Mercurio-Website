@@ -4,20 +4,22 @@
         <div class="pm-overview c-overflow">
             <div class="pmo-pic hidden-xs">
                 <div class="p-relative" ng-if="tipoAnuncio === 'empresa'">
-                    <img ng-src="http://localapi.mercurio.hn/api/v0.1/logoanuncioempresa/empresas/{{empresaId}}/logos" class="pv-main" alt="">
+                    <img ng-src="http://localapi.mercurio.hn/api/v0.1/logoanuncioempresa/empresas/{{empresaId}}/logos" class="pv-main" alt="LOGOTIPO MERCURIO">
                 </div>
                 <div class="p-relative" ng-if="tipoAnuncio === 'admin'">
-                    <img ng-src="http://localapi.mercurio.hn/api/v0.1/anuncio/logoanuncio/{{anuncio.anuncioByIdResult.id}}" class="pv-main" alt="">
+                    <img ng-src="http://localapi.mercurio.hn/api/v0.1/anuncio/logoanuncio/{{anuncio.anuncioByIdResult.id}}" class="pv-main" alt="LOGOTIPO MERCURIO">
                 </div>
                 <div class="pmo-stat bgm-red">
                     <!--h2 class="m-0 c-white">1562</h2-->
                     {{anuncio.nombreEmpresa | uppercase}}
                 </div>
             </div>
-
+            <set-seo title="Mercurio Honduras - Empleos - ofertas de trabajo" 
+            metakeywords="empleos,trabajos,anuncios,oportunidad de trabajo,empleador,trabajador,jornalero,empresa,empresarios,mercurio,hermes,honduras,hn,patrono,busco un empleo,bolsa de trabajo, chamba"
+            metadescrip="Mercurio es tu sitio web para encontrar empleo en Honduras"
+            ></set-seo>
             <div id="info-aplicar" class="pmo-block pmo-contact">
                 <h2>INFORMACION PARA APLICAR</h2>
-
                 <ul>
                     <li ng-if="anuncio.anuncioByIdResult.telefono_contacto != null && anuncio.anuncioByIdResult.telefono_contacto != 'null'"><i class="md md-phone"></i><span class="f-500 c-black"> {{anuncio.anuncioByIdResult.telefono_contacto}}</span></li>
                     <li ng-if="anuncio.anuncioByIdResult.email_contacto != null && anuncio.anuncioByIdResult.email_contacto != 'null'"><i class="md md-email"></i><span class="f-500 c-black"> {{anuncio.anuncioByIdResult.email_contacto}}</span></li>

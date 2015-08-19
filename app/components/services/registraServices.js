@@ -63,4 +63,15 @@ mercurioApp.service('registraService', ['$resource', '$cookies', '$http','$local
         };	
 	}
 
+	this.contactanos = function(data)
+	{
+		if (token) 
+		{
+			 data.access_token = token;
+			 //data.token = $localStorage.token;
+            promise = $http.post(url_request+"/contactanos",  data);
+            return promise;
+		};		
+	}
+
 }]);

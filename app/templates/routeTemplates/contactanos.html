@@ -1,0 +1,55 @@
+<set-seo title="MERCURIO HONDURAS - Contactanos - Busca de Empleos - Trabajos - Bolsa de trabajo,"
+    metakeywords="empleos,trabajos,anuncios,oportunidad de trabajo,empleador,trabajador,jornalero,empresa,empresarios,mercurio,hermes,honduras,hn,patrono,busco un empleo,bolsa de trabajo, chamba"
+    metadescrip="Contacta mercurio honduras para encontrar trabajo"
+    ></set-seo>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card bs-item bs-item z-depth-1">
+            <div id="markup-registra">
+                <h1>Contactanos</h1><h2>Envianos tus dudas o comentarios...</h2>
+                <div id="down-arrow">
+                    <h1><i class="md md-expand-more"></i></h1>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 60px; padding-right: 20px; padding-left: 20px;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <form ng-submit="enviarCorreo()">
+                        <div id="bloc-nombre" class="input-group">
+                            <span class="input-group-addon"><i class="md md-account-circle"></i></span>
+                            <div class="fg-line">
+                                <input type="text" input-focus-blue ng-model="contactanos.nombre" class="form-control" placeholder="Nombre Completo">
+                            </div>
+                        </div>
+                        <small id="nombre-text" style="display:none" class="help-block c-red"></small>
+                        <div id="bloc-email" class="m-t-15 input-group">
+                            <span class="input-group-addon"><i class="md md-email"></i></span>
+                            <div class="fg-line">
+                                <input type="text" input-focus-blue ng-model="contactanos.email" class="form-control" placeholder="tu email">
+                            </div>
+                        </div>
+                        <small id="email-text" style="display:none" class="help-block c-red"></small>
+                        <div class="col-sm-12 m-t-25">
+                            <div class="form-group">
+                                <div class="fg-line">
+                                    <textarea input-focus-blue class="form-control m-t-15" ng-model="contactanos.mensaje" rows="5" placeholder="Escribe tu mensaje aquí"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <small id="mensaje-text" style="display:none" class="help-block c-red"></small>
+                        <div class="row" style="margin-top: 20px">
+                            <div role="alert" class="alert alert-danger "  ng-if="errores != ''">{{errores}}</div>
+                        </div>
+                        <div class="row" style="margin-top: 40px">    
+                        <input type="submit" class="btn btn-success btn-block waves-effect waves-button waves-float" value="Enviar">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>

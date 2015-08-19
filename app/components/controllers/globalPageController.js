@@ -1,9 +1,5 @@
-mercurioApp.controller('globalPage', ['$cookies', '$scope', '$location', 
-    '$http', '$timeout', '$resource', '$log', '$routeParams', 
-    '$anchorScroll', '$sce', 'mainPageService', 'anuncioService',
-    function($cookies, $scope, $location, $http, $timeout, 
-        $resource, $log, $routeParams, $anchorScroll, $sce, 
-        mainPageService, anuncioService) {
+mercurioApp.controller('globalPage', ['$cookies', '$scope', '$location', '$http', '$timeout', '$resource', '$log', '$routeParams', '$anchorScroll', '$sce', 'mainPageService', 'anuncioService',
+    function($cookies, $scope, $location, $http, $timeout, $resource, $log, $routeParams, $anchorScroll, $sce, mainPageService, anuncioService) {
         $anchorScroll();
         $scope.credentials = {}
         $scope.credentials.email;
@@ -12,22 +8,38 @@ mercurioApp.controller('globalPage', ['$cookies', '$scope', '$location',
             value1: 'NO'
         }
         $scope.errores = "";
-
-       
-
-    
+        var token = mainPageService.token;
+        if (!token) {
+            mainPageService.getToken().success(function(data) {
+                // Setting a cookie
+                time = new Date(1451606400 * 1000);
+                //si no hay errores al solicitar el cookie
+                //guardamos una nueva cookie 
+                $cookies.put('token_mercuriowebsite', data.access_token, {
+                    'expires': time
+                });
+                location.reload();
+            }).error(function(data) {
+                if (data.error == "access_denied") {
+                    // Setting a cookie
+                    time = new Date(1451606400 * 1000);
+                    //si no hay errores al solicitar el cookie
+                    //guardamos una nueva cookie 
+                    $cookies.put('token_mercuriowebsite', data.access_token, {
+                        'expires': time
+                    });
+                    location.reload();
+                };
+            })
+        };
+     
             anuncioService.getDepartamentos().success(function(data) {
                 $scope.departamentos = data.datos;
-                $log.log($scope.departamenos);
             }).error(function(data) {})
-
             anuncioService.getCategorias().success(function(data) {
                 $scope.categorias = data.datos;
-                $log.log($scope.categorias);
             }).error(function(data) {})
-
-
-
+       
         $scope.login = function() {
             data = {
                 email: $scope.credentials.email,

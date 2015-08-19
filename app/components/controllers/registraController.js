@@ -161,9 +161,34 @@ mercurioApp.controller('registraController',['$cookies','$scope','$location',
 		};
 	}
 	
+	$scope.cleanError = function()
+	{
+		$("#terminos-text").css({'display':'none'}).text("");
+		//return "Escriba el nombre de la empresa";
+		$("#bloc-nombre").removeClass('has-error');
+		$("#nombre-text").css({'display':'none'}).text("");
+		$("#bloc-apellido").removeClass('has-error');
+		$("#apellido-text").css({'display':'none'}).text("");
+		//return "Escriba el telefono de la empresa";
+		$("#bloc-email").removeClass('has-error');
+		$("#email-text").css({'display':'none'}).text("Escriba su email");
+		//return "Escriba el email de la empresa";
+		$("#bloc-password").removeClass('has-error');
+		$("#password-text").css({'display':'none'}).text("");
+		//return "Escriba el email de la empresa";
+		$("#bloc-nombreEmpresa").removeClass('has-error');
+		$("#nombreEmpresa-text").css({'display':'none'}).text("");
+		//return "Seleccione un rubro";
+		$("#bloc-rubro").removeClass('has-error');
+		$("#rubro-text").css({'display':'none'}).text("");
+		//return "Seleccioné un país";
+		$("#bloc-pais").removeClass('has-error');
+		$("#pais-text").css({'display':'none'}).text("");	
+	}
 
 	$scope.registrarEmpresa = function()
 	{
+		$scope.cleanError();
 		var datos = 
 		{
 			terminos:$scope.terminos.value1,
