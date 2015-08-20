@@ -13,8 +13,8 @@
                 <li style="font-size: 15px">{{anuncioResult.nombreEmpresa | uppercase}}</li>
             </ul>
             <ul id="anuncio-contacto" class="pv-contact hide-fit">
-                <li ng-if="anuncioResult.telefono != null || anuncioResult.telefono != 'null'"><i class="md md-phone"></i> {{anuncioResult.telefono}}</li>
-                <li ng-if="anuncioResult.email != null || anuncioResult.email != 'null'"><i class="md md-email"></i> {{anuncioResult.email}}</li>
+                <li ng-if="anuncioResult.telefono != null && anuncioResult.telefono != 'null'"><i class="md md-phone"></i> {{anuncioResult.telefono}}</li>
+                <li ng-if="anuncioResult.email != null && anuncioResult.email != 'null'"><i class="md md-email"></i> {{anuncioResult.email}}</li>
             </ul>
             <!--button class="btn btn-primary bgm-deeporange  btn-block waves-effect waves-button waves-float">Ver detalles</button-->
         </div>
