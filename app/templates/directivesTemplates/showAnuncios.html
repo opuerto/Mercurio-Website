@@ -2,10 +2,10 @@
 <div id="anuncios" class="anuncios" >
     <div class="card profile-view">
         <div class="pv-header" ng-if="anuncioResult.tipoAnuncio === 'empresa'">
-            <img ng-src="http://localapi.mercurio.hn/api/v0.1/logoanuncioempresa/empresas/{{anuncioResult.empresa_id}}/logos" class="pv-main" alt="LOGOTIPO MERCURIO">
+            <img ng-src="http://app.mercurio.hn/api/v0.1/logoanuncioempresa/empresas/{{anuncioResult.empresa_id}}/logos" class="pv-main" alt="LOGOTIPO MERCURIO">
         </div>
         <div class="pv-header" ng-if="anuncioResult.tipoAnuncio === 'admin'">
-            <img ng-src="http://localapi.mercurio.hn/api/v0.1/anuncio/logoanuncio/{{anuncioResult.id}}" class="pv-main" alt="LOGOTIPO MERCURIO">
+            <img ng-src="http://app.mercurio.hn/api/v0.1/anuncio/logoanuncio/{{anuncioResult.id}}" class="pv-main" alt="LOGOTIPO MERCURIO">
         </div>
         <div class="pv-body">
             <h2>{{anuncioResult.titulo}}</h2>

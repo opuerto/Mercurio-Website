@@ -49,9 +49,9 @@ mercurioApp.controller('globalPage', ['$cookies', '$scope', '$location', '$http'
                 localStorage.setItem('token', data.token);
                 //redirecciono con el token 
                 if ($scope.credentials.recordarme.value1 === 'SI') {
-                    window.location = "http://localapi.mercurio.hn/aplicacion/remember?token=" + localStorage.getItem('token');
+                    window.location = "http://app.mercurio.hn/aplicacion/remember?token=" + localStorage.getItem('token');
                 } else {
-                    window.location = "http://localapi.mercurio.hn/aplicacion?token=" + localStorage.getItem('token');
+                    window.location = "http://app.mercurio.hn/aplicacion?token=" + localStorage.getItem('token');
                 }
             }).error(function(data) {
                 $.growl({

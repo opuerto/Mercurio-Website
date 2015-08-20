@@ -234,7 +234,7 @@ mercurioApp.controller('registraController',['$cookies','$scope','$location',
 					registraService.CrearEmpresa(datos_empresa).success(function(data)
 					{
 							//redirecciono con el token 					
-						window.location = "http://localapi.mercurio.hn/aplicacion?token="+localStorage.getItem('token');
+						window.location = "http://app.mercurio.hn/aplicacion?token="+localStorage.getItem('token');
 					}).error(function(data)
 					{
 						var mensaje = data.mensaje;
