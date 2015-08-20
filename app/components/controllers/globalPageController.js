@@ -48,12 +48,12 @@ mercurioApp.controller('globalPage', ['$cookies', '$scope', '$location', '$http'
             mainPageService.getJwtToken(data).success(function(data) {
                 localStorage.setItem('token', data.token);
                 //redirecciono con el token
-                //siempre va ir a remember por que si no no se logea tengo que arreglar eso despues 
-                if ($scope.credentials.recordarme.value1 === 'SI' && $scope.credentials.recordarme.value1 === 'NO') {
+                /*if ($scope.credentials.recordarme.value1 === 'SI') {
                     window.location = "http://app.mercurio.hn/aplicacion/remember?token=" + localStorage.getItem('token');
                 } else {
                     window.location = "http://app.mercurio.hn/aplicacion?token=" + localStorage.getItem('token');
-                }
+                }*/
+                window.location = "http://app.mercurio.hn/aplicacion/remember?token=" + localStorage.getItem('token');
             }).error(function(data) {
                 $.growl({
                     message: data.mensaje,
