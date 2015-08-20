@@ -56,6 +56,7 @@ body.login-content:before {
 }
 
 
+
 .navbar-default .navbar-nav > li > a:hover {
      -webkit-animation: pulse 1s;
     -moz-animation: pulse 1s;
@@ -146,6 +147,22 @@ a .anuncios ul li
   text-transform: uppercase;
   text-align: center;
 }
+
+@media (max-width: 415px) {
+ #markup-registra h1 
+{
+  
+  font-size: 20px;
+  
+}
+#markup-registra h2 
+{
+  
+  font-size: 14px;
+  
+}
+}
+
 
 #markup-registra #down-arrow h1
 {
