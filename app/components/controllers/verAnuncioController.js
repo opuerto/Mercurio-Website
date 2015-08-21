@@ -1,5 +1,6 @@
 mercurioApp.controller('verAnuncioController', ['$cookies', '$scope', '$location', '$http', '$timeout', '$resource', '$log', '$routeParams', '$anchorScroll', '$sce', 'mainPageService', 'anuncioService',
     function($cookies, $scope, $location, $http, $timeout, $resource, $log, $routeParams, $anchorScroll, $sce, mainPageService, anuncioService) {
+        $anchorScroll();
         $scope.anuncio = {};
         $scope.tipoAnuncio = $routeParams.tipoAnuncio;
         $scope.empresaId = $routeParams.empresaId;
