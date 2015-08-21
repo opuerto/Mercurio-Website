@@ -18,7 +18,7 @@
                 <!-- CSS -->
                 <link href="css/app.min.1.css" rel="stylesheet">
                 <link href="css/app.min.2.css" rel="stylesheet">
-                 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.css' type='text/css' media='all' />
+                <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.css' type='text/css' media='all' />
                 <link href="css/mercurio.css" rel="stylesheet">
                 <!--Scripts-->
                 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
@@ -75,16 +75,16 @@
                                     </div>
                                 </li>
                                 <!--li id="top-search">
-                                    <a class="tm-search" href=""></a>
-                                </li-->
-                                <li class="dropdown hidden-xs">
-                                    <a data-toggle="dropdown" class="tm-login" href=""></a>
-                                    <div class="dropdown-menu dropdown-menu-lg pull-right">
-                                        <div class="listview">
-                                            <div class="lv-header">
-                                                Iniciar sesión empresas
-                                            </div>
-                                            <div class="lv-body c-overflow">
+                                                                    <a class="tm-search" href=""></a>
+                            </li-->
+                            <li class="dropdown hidden-xs">
+                                <a data-toggle="dropdown" class="tm-login" href=""></a>
+                                <div class="dropdown-menu dropdown-menu-lg pull-right">
+                                    <div class="listview">
+                                        <div class="lv-header">
+                                            Iniciar sesión empresas
+                                        </div>
+                                        <div class="lv-body c-overflow">
                                             <form ng-submit="login()">
                                                 <div class="col-sm-12" id="login-box">
                                                     <div class="input-group m-b-20">
@@ -110,107 +110,115 @@
                                                     </div>
                                                     <div class="col-sm-12">
                                                         <button class="btn btn-danger btn-block waves-effect" >Iniciar Sesión</button>
-                                                        
-                                                    </div>
 
+                                                    </div>
                                                 </div>
-                                                    
-                                                </form>
-                                            </div>
-                                            <div class="lv-footer">
-                                              <div class="col-sm-6" id="forget-pass"><a class="c-black" href="#/reset/password">Olvide mi contrasena</a></div>  
-                                              <div class="col-sm-6" id="registra"><a class="c-black" href="#/registrate">Registra tu empresa</a></div>  
-                                            </div>
-                                            
+
+                                            </form>
                                         </div>
+                                        <div class="lv-footer">
+                                            <div class="col-sm-6" id="forget-pass"><a class="c-black" href="#/reset/password">Olvide mi contrasena</a></div>
+                                            <div class="col-sm-6" id="registra"><a class="c-black" href="#/registrate">Registra tu empresa</a></div>
+                                        </div>
+
                                     </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Top Search Content -->
+                <div id="top-search-wrap">
+                    <input type="text">
+                    <i id="top-search-close">&times;</i>
+                </div>
+            </header>
+            <section id="main">
+                <aside id="sidebar">
+                    <div class="sidebar-inner">
+                        <div class="si-inner">
+                            <ul class="main-menu">
+                                <li class="sub-menu">
+                                    <a href=""><i class="md md-now-widgets"></i> Lugar</a>
+                                    <ul>
+                                        <li ng-repeat="departamento in departamentos"><a ng-href="#/anuncios/departamento/{{departamento.id}}" ng-class="{active:departamento_id == {{departamento.id}}}" >{{departamento.nombre | uppercase}} ({{departamento.numero_anuncios}})</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href=""><i class="md md-view-list"></i> Categorias</a>
+                                    <ul>
+                                        <li  ng-repeat="categoria in categorias"><a ng-href="#/anuncios/categoria/{{categoria.id}}" ng-class="{active:categoria_id == categoria.id}">{{categoria.nombre | uppercase}} ({{categoria.numero_anuncios}})</a></li>
+
+                                    </ul>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                    <!-- Top Search Content -->
-                    <div id="top-search-wrap">
-                        <input type="text">
-                        <i id="top-search-close">&times;</i>
+                        </div>
                     </div>
-                </header>
-                <section id="main">
-                    <aside id="sidebar">
-                        <div class="sidebar-inner">
-                            <div class="si-inner">
-                                <ul class="main-menu">
-                                    <li class="sub-menu">
-                                        <a href=""><i class="md md-now-widgets"></i> Lugar</a>
-                                        <ul>
-                                            <li ng-repeat="departamento in departamentos"><a ng-href="#/anuncios/departamento/{{departamento.id}}" ng-class="{active:departamento_id == {{departamento.id}}}" >{{departamento.nombre | uppercase}} ({{departamento.numero_anuncios}})</a></li>
-                                            
-                                        </ul>
-                                    </li>
-                                    <li class="sub-menu">
-                                        <a href=""><i class="md md-view-list"></i> Categorias</a>
-                                        <ul>
-                                            <li  ng-repeat="categoria in categorias"><a ng-href="#/anuncios/categoria/{{categoria.id}}" ng-class="{active:categoria_id == categoria.id}">{{categoria.nombre | uppercase}} ({{categoria.numero_anuncios}})</a></li>
-                                            
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </aside>
-                    <section id="content">
-                        <div id="conteiner-pages" class="container" ng-view>
-                        </div>
-                    </section>
+                </aside>
+                <section id="content">
+                    <div id="conteiner-pages" class="container" ng-view>
+                    </div>
                 </section>
-                <!-- Javascript Libraries -->
-                <script src="js/jquery-2.1.1.min.js"></script>
-                <script src="js/bootstrap.min.js"></script>
-                <script src="vendors/flot/jquery.flot.min.js"></script>
-                <script src="vendors/flot/jquery.flot.resize.min.js"></script>
-                <script src="vendors/flot/plugins/curvedLines.js"></script>
-                <script src="vendors/sparklines/jquery.sparkline.min.js"></script>
-                <script src="vendors/easypiechart/jquery.easypiechart.min.js"></script>
-                <script src="vendors/fullcalendar/lib/moment.min.js"></script>
-                <script src="vendors/fullcalendar/fullcalendar.min.js"></script>
-                <script src="vendors/simpleWeather/jquery.simpleWeather.min.js"></script>
-                <script src="vendors/auto-size/jquery.autosize.min.js"></script>
-                <script src="vendors/nicescroll/jquery.nicescroll.min.js"></script>
-                <script src="vendors/waves/waves.min.js"></script>
-                <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
-                <script src="vendors/sweet-alert/sweet-alert.min.js"></script>
-                <script src="js/flot-charts/curved-line-chart.js"></script>
-                <script src="js/flot-charts/line-chart.js"></script>
-                <script src="js/charts.js"></script>
-                <script src="js/charts.js"></script>
-                <script src="js/functions.js"></script>
-                <script src="js/mercurio.js"></script>
-               
-                <!--Angular Apps -->
-                <script src="app/app.js"></script>
-                <script src="app/components/routes/routes.js"></script>
-                <!--Controllers -->
-                <script src="app/components/controllers/paginaInicioController.js"></script>
-                <script src="app/components/controllers/globalPageController.js"></script>
-                <script src="app/components/controllers/verAnuncioController.js"></script>
-                <script src="app/components/controllers/registraController.js"></script>
-                <script src="app/components/controllers/resetPasswordController.js"></script>
-                <script src="app/components/controllers/contactanosController.js"></script>
-                <!--Service-->
-                <script src="app/components/services/mainPageServices.js"></script>
-                <script src="app/components/services/anuncioServices.js"></script>
-                <script src="app/components/services/registraServices.js"></script>
-                <script src="app/components/services/paisesServices.js"></script>
-                <script src="app/components/services/resetPasswordService.js"></script>
-                <!--Factory-->
-                <script src="app/components/factories/authFactory.js"></script>
-                <!--Directives-->
-                <script src="app/components/directives/anuncioDirective.js"></script>
-                <script src="app/components/directives/checkTextAnuncioDirective.js"></script>
-                <script src="app/components/directives/showCambiarPassTempDirective.js"></script>
-                <script src="app/components/directives/seoDirective.js"></script>
-                
-                
-                <!-- This is the script for loading bar -->
-        <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.js'></script>
-            </body>
-        </html>
+            </section>
+            <!-- Javascript Libraries -->
+            <script src="js/jquery-2.1.1.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="vendors/flot/jquery.flot.min.js"></script>
+            <script src="vendors/flot/jquery.flot.resize.min.js"></script>
+            <script src="vendors/flot/plugins/curvedLines.js"></script>
+            <script src="vendors/sparklines/jquery.sparkline.min.js"></script>
+            <script src="vendors/easypiechart/jquery.easypiechart.min.js"></script>
+            <script src="vendors/fullcalendar/lib/moment.min.js"></script>
+            <script src="vendors/fullcalendar/fullcalendar.min.js"></script>
+            <script src="vendors/simpleWeather/jquery.simpleWeather.min.js"></script>
+            <script src="vendors/auto-size/jquery.autosize.min.js"></script>
+            <script src="vendors/nicescroll/jquery.nicescroll.min.js"></script>
+            <script src="vendors/waves/waves.min.js"></script>
+            <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+            <script src="vendors/sweet-alert/sweet-alert.min.js"></script>
+            <script src="js/flot-charts/curved-line-chart.js"></script>
+            <script src="js/flot-charts/line-chart.js"></script>
+            <script src="js/charts.js"></script>
+            <script src="js/charts.js"></script>
+            <script src="js/functions.js"></script>
+            <script src="js/mercurio.js"></script>
+
+            <!--Angular Apps -->
+            <script src="app/app.js"></script>
+            <script src="app/components/routes/routes.js"></script>
+            <!--Controllers -->
+            <script src="app/components/controllers/paginaInicioController.js"></script>
+            <script src="app/components/controllers/globalPageController.js"></script>
+            <script src="app/components/controllers/verAnuncioController.js"></script>
+            <script src="app/components/controllers/registraController.js"></script>
+            <script src="app/components/controllers/resetPasswordController.js"></script>
+            <script src="app/components/controllers/contactanosController.js"></script>
+            <!--Service-->
+            <script src="app/components/services/mainPageServices.js"></script>
+            <script src="app/components/services/anuncioServices.js"></script>
+            <script src="app/components/services/registraServices.js"></script>
+            <script src="app/components/services/paisesServices.js"></script>
+            <script src="app/components/services/resetPasswordService.js"></script>
+            <!--Factory-->
+            <script src="app/components/factories/authFactory.js"></script>
+            <!--Directives-->
+            <script src="app/components/directives/anuncioDirective.js"></script>
+            <script src="app/components/directives/checkTextAnuncioDirective.js"></script>
+            <script src="app/components/directives/showCambiarPassTempDirective.js"></script>
+            <script src="app/components/directives/seoDirective.js"></script>
+
+
+            <!-- This is the script for loading bar -->
+            <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.7.1/loading-bar.min.js'></script>
+            <!-- Google Analytics codigo de seguimiento -->
+            <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-66603506-1', 'auto');
+            ga('send', 'pageview');
+            </script>
+        </body>
+    </html>
