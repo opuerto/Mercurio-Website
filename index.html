@@ -137,27 +137,50 @@
             </header>
             <section id="main">
                 <aside id="sidebar">
-                    <div class="sidebar-inner">
-                        <div class="si-inner">
-                            <ul class="main-menu">
-                                <li class="sub-menu">
-                                    <a href=""><i class="md md-now-widgets"></i> Lugar</a>
-                                    <ul>
-                                        <li ng-repeat="departamento in departamentos"><a ng-href="#/anuncios/departamento/{{departamento.id}}" ng-class="{active:departamento_id == {{departamento.id}}}" >{{departamento.nombre | uppercase}} ({{departamento.numero_anuncios}})</a></li>
-
-                                    </ul>
-                                </li>
-                                <li class="sub-menu">
-                                    <a href=""><i class="md md-view-list"></i> Categorias</a>
-                                    <ul>
-                                        <li  ng-repeat="categoria in categorias"><a ng-href="#/anuncios/categoria/{{categoria.id}}" ng-class="{active:categoria_id == categoria.id}">{{categoria.nombre | uppercase}} ({{categoria.numero_anuncios}})</a></li>
-
-                                    </ul>
-                                </li>
-                            </ul>
+                <ul class="tab-nav tn-justified" role="tablist">
+                    <li role="presentation" class="active"><a href="#Localidad" aria-controls="Localidad" role="tab" data-toggle="tab">Localidad</a></li>
+                    <li role="presentation"><a href="#categoria" aria-controls="categoria" role="tab" data-toggle="tab">Categoria</a></li>
+                </ul>
+            
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="Localidad">
+                        <div class="listview">
+                            <a class="lv-item" ng-href="#/anuncios/departamento/{{departamento.id}}" ng-repeat="departamento in departamentos">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/widgets/hondurasMap.jpg" alt="">
+                                        
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">{{departamento.nombre | uppercase}}</div>
+                                        <small class="lv-small">({{departamento.numero_anuncios}})</small>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                   
                         </div>
                     </div>
-                </aside>
+                    <div role="tabpanel" class="tab-pane fade" id="categoria">
+                        <div class="listview">
+                            <a class="lv-item" ng-href="#/anuncios/categoria/{{categoria.id}}" ng-repeat="categoria in categorias">
+                                <div class="media">
+                                    <div class="pull-left p-relative">
+                                        <img class="lv-img-sm" src="img/widgets/m.jpg" alt="">
+                                        
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="lv-title">{{categoria.nombre | uppercase}}</div>
+                                        <small class="lv-small">({{categoria.numero_anuncios}})</small>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                           
+                        </div>
+                    </div>
+                </div>
+            </aside>
                 <section id="content">
                     <div id="conteiner-pages" class="container" ng-view>
                     </div>
@@ -209,6 +232,7 @@
             <script src="app/components/directives/checkTextAnuncioDirective.js"></script>
             <script src="app/components/directives/showCambiarPassTempDirective.js"></script>
             <script src="app/components/directives/seoDirective.js"></script>
+            <script src="app/components/directives/niceScrollDirective.js"></script>
 
 
             <!-- This is the script for loading bar -->
