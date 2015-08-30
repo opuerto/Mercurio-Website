@@ -2,6 +2,8 @@ $(document).ready(inicio);
 function inicio(){
 	
     showSidebarDefautl();
+    scrollable();
+    $('#ascrail2000').show();
    	
 }
 
@@ -18,3 +20,19 @@ function showSidebarDefautl()
 		};
 
 }
+
+function scrollable() { 
+
+    $("#sidebar").niceScroll(
+    		{
+        cursorcolor: "rgba(0,0,0,0.5)",
+        cursoropacitymin: 0.3,
+        background: "#bbb",
+        cursorborder: "0",
+        autohidemode: false,
+        cursorminheight: 30
+    }
+    	);
+
+  }
+

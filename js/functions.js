@@ -372,7 +372,7 @@ $(document).ready(function(){
         if ($('.dropdown-menu .c-overflow')[0]) {
             scrollbar('.dropdown-menu .c-overflow', 'rgba(0,0,0,0.5)', '0px');
         }
-    
+            
         //Scrollbar for rest
         if ($('.c-overflow')[0]) {
             scrollbar('.c-overflow', 'rgba(0,0,0,0.5)', '5px');
