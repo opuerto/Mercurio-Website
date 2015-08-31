@@ -5,6 +5,10 @@ body.login-content:before {
   
 }
 
+#sidebar
+{
+  overflow-y:auto !important;
+}
 
 .header-inner .menu-items {
   	position: absolute;

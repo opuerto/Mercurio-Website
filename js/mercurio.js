@@ -2,8 +2,9 @@ $(document).ready(inicio);
 function inicio(){
 	
     showSidebarDefautl();
-    scrollable();
-    $('#ascrail2000').show();
+    //take out for a momment .
+    //scrollable();
+    //$('#ascrail2000').show();
    	
 }
 
