@@ -32,6 +32,10 @@ mercurioApp.config(['$routeProvider','$httpProvider','jwtInterceptorProvider','c
         templateUrl: 'app/templates/routeTemplates/contactanos.html',
         controller: 'contactanosController'
     }) 
+    .when('/suscribete', {
+        templateUrl: 'app/templates/routeTemplates/suscribete.html',
+        controller: 'suscribeteController'
+    }) 
     
      .otherwise({
                redirectTo: '/'
