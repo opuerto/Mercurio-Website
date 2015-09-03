@@ -139,7 +139,8 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
            
             $timeout(function() {
                         $scope.anuncios.anunciosResult = data.datos;    
-                   $scope.anuncios.NumAnuncios = data.datos.length;  
+                   $scope.anuncios.NumAnuncios = data.datos.length;
+                    $anchorScroll();  
             }, 0);
 
             
@@ -156,6 +157,7 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
             $timeout(function() {
                         $scope.anuncios.anunciosResult = data.datos;    
                    $scope.anuncios.NumAnuncios = data.datos.length;  
+                    $anchorScroll();
             }, 0);
 
                       
