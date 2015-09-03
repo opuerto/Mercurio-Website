@@ -8,7 +8,13 @@
 </div>
 
 <!--div class="col-sm-12" ng-if="anuncios.NumAnuncios"><div class="col-sm-3"></div><div class="col-sm-3"><button class="btn bgm-white waves-effect waves-button waves-float c-black" ng-if="current_page > 1" ng-click="preview()">pagina anterior</button></div><div class="col-sm-3"><button class="btn bgm-white waves-effect waves-button waves-float c-black" ng-click="next()" ng-if="current_page<lastpage">pagina siguiente</button></div><div class="col-sm-3"></div></div-->
-<div class="col-sm-12" ng-if="anuncios.NumAnuncios">
-	<div class="col-sm-4"></div><div clas="col-sm-4"><button  ng-click="preview()" ng-if="current_page > 1" class="btn btn-default btn-icon waves-effect waves-button waves-float"><i class="md md-arrow-back"></i></button><button ng-click="next()" ng-if="current_page<lastpage" class="m-l-15 btn btn-default btn-icon waves-effect waves-button waves-float"><i class="md md-arrow-forward"></i></button></div><div class="col-sm-4"></div>
+<div class="col-sm-12 m-l-20" ng-if="anuncios.NumAnuncios">
+	<div class="col-sm-4"></div><div clas="col-sm-4"></div><div class="m-l-25 col-sm-4"><button  ng-click="preview()" ng-if="current_page > 1" class="btn btn-default btn-icon waves-effect waves-button waves-float"><i class="md md-arrow-back"></i></button><button ng-click="next()" ng-if="current_page<lastpage" class="m-l-15 btn btn-default btn-icon waves-effect waves-button waves-float"><i class="md md-arrow-forward"></i></button></div>
+</div>
+<div class="col-sm-12 m-t-20 m-l-25" ng-if="anuncios.NumAnuncios">
+	<div class="col-sm-4"></div><div clas="col-sm-4"></div><div class="m-l-25 col-sm-4">pagina {{current_page}} de {{lastpage}}</div>
+</div>
+<div class="col-sm-12 m-t-20" ng-if="anuncios.NumAnuncios">
+	<div class="col-sm-4"></div><div clas="col-sm-4">DERECHOS RESERVADOS 2015 ©</div><div class="col-sm-4"></div>
 </div>
 
