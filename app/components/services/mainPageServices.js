@@ -1,6 +1,6 @@
 mercurioApp.service('mainPageService', ['$resource', '$cookies', '$http', function($resource, $cookies, $http) {
-	this.urlRequest = 'http://app.mercurio.hn';
-	var urlR = 'http://app.mercurio.hn'; 
+	this.urlRequest = 'http://app.mercurio.hn/';
+	var urlR = 'http://app.mercurio.hn/'; 
 	this.token = $cookies.get('token_mercuriowebsite');
 	var token_website = $cookies.get('token_mercuriowebsite');
 	this.getToken = function()

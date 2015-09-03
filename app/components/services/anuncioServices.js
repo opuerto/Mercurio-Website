@@ -30,10 +30,10 @@ mercurioApp.service('anuncioService', ['$resource', '$cookies', '$http','mainPag
             return promise;
         };
     }
-    this.getAnuncioByCategoria = function(id)
+    this.getAnuncioByCategoria = function(id,page)
     {
         if (token) {
-            var url = url_request+"/api/v0.1/anuncio/anunciosbycategoria/"+id;
+            var url = url_request+"/api/v0.1/anuncio/anunciosbycategoria/"+id+"/"+page;
             var promise = $http({
                 method: 'GET',
                 url: url,
@@ -45,10 +45,10 @@ mercurioApp.service('anuncioService', ['$resource', '$cookies', '$http','mainPag
         };
     }
 
-    this.getAnuncioByDepartamento = function(id)
+    this.getAnuncioByDepartamento = function(id,page)
     {
         if (token) {
-            var url = url_request+"/api/v0.1/anuncio/anunciosbydepartamento/"+id;
+            var url = url_request+"/api/v0.1/anuncio/anunciosbydepartamento/"+id+"/"+page;
             var promise = $http({
                 method: 'GET',
                 url: url,

@@ -6,3 +6,14 @@
     <on-texto-anuncio-muy-largo anuncio-result="Anuncio" sumar-click="sumarClicks(id)" anuncio-numero="anuncios.NumAnuncios"></on-texto-anuncio-muy-largo>
     <show-anuncios anuncio-result="Anuncio"></show-anuncios>
 </div>
+<div id="pie-pagina-anuncios">
+    <div class="col-sm-12 m-l-20" ng-if="anuncios.NumAnuncios">
+        <div class="col-sm-4"></div><div clas="col-sm-4"></div><div class="m-l-25 col-sm-4"><button  ng-click="previewInDepartamento()" ng-if="current_page > 1" class="btn btn-default btn-icon waves-effect waves-button waves-float"><i class="md md-arrow-back"></i></button><button ng-click="nextInDepartamento()" ng-if="current_page<lastpage" class="m-l-15 btn btn-default btn-icon waves-effect waves-button waves-float"><i class="md md-arrow-forward"></i></button></div>
+    </div>
+    <div class="col-sm-12 m-t-20 m-l-25" ng-if="anuncios.NumAnuncios">
+        <div class="col-sm-4"></div><div clas="col-sm-4"></div><div class="m-l-25 col-sm-4">pagina {{current_page}} de {{lastpage}}</div>
+    </div>
+    <div class="col-sm-12 m-t-20" ng-if="anuncios.NumAnuncios">
+        <div class="col-sm-4"></div><div clas="col-sm-4">DERECHOS RESERVADOS 2015 ©</div><div class="col-sm-4"></div>
+    </div>
+</div>

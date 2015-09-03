@@ -41,7 +41,7 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
 
        if($location.path() == '/')
        { 
-        anuncioService.getTodosLosAnuncios($scope.lastpage).success(function(data) {
+        anuncioService.getTodosLosAnuncios($scope.current_page).success(function(data) {
            
             $scope.anuncios.anunciosResult = data.datos;
             $scope.lastpage = data.pagination.last_page;
@@ -70,9 +70,11 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
 
         if ($location.path() == '/anuncios/departamento/'+$routeParams.de_id) 
         {
-            anuncioService.getAnuncioByDepartamento($routeParams.de_id).success(function(data)
+            $scope.current_page = 1;
+            anuncioService.getAnuncioByDepartamento($routeParams.de_id,$scope.current_page).success(function(data)
             {
                  $scope.anuncios.anunciosResult = data.datos;
+                 $scope.lastpage = data.pagination.last_page;
                  $scope.anuncios.NumAnuncios = data.datos.length;
             })
             .error(function(data,status)
@@ -106,9 +108,11 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
 
         if ($location.path() == '/anuncios/categoria/'+$routeParams.ca_id) 
         {
-             anuncioService.getAnuncioByCategoria($routeParams.ca_id).success(function(data)
+            $scope.current_page = 1;
+             anuncioService.getAnuncioByCategoria($routeParams.ca_id,$scope.current_page).success(function(data)
             {
                  $scope.anuncios.anunciosResult = data.datos;
+                 $scope.lastpage = data.pagination.last_page;
                  $scope.anuncios.NumAnuncios = data.datos.length;
             })
             .error(function(data,status)
@@ -132,6 +136,7 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
       
         };
 
+        //Funciones para Todos los anuncios 
         $scope.next = function()
         {
              ++$scope.current_page;               
@@ -165,5 +170,64 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
         })
         
       }  
+
+      //Funciones para getanunciosbycategoria y get anunciosbydepartamento
+
+      $scope.nextInDepartamento = function()
+      {
+        ++$scope.current_page; 
+        anuncioService.getAnuncioByDepartamento($routeParams.de_id,$scope.current_page).success(function(data) {
+           
+            $timeout(function() {
+                        $scope.anuncios.anunciosResult = data.datos;    
+                   $scope.anuncios.NumAnuncios = data.datos.length;
+                    $anchorScroll();  
+            }, 0);
+           
+        })
+             
+      }
+
+      $scope.previewInDepartamento = function()
+      {
+        --$scope.current_page; 
+        anuncioService.getAnuncioByDepartamento($routeParams.de_id,$scope.current_page).success(function(data) {
+           
+            $timeout(function() {
+                        $scope.anuncios.anunciosResult = data.datos;    
+                   $scope.anuncios.NumAnuncios = data.datos.length;
+                    $anchorScroll();  
+            }, 0);
+           
+        }) 
+      }
+
+      $scope.nextInCategoria = function()
+      {
+             ++$scope.current_page; 
+            anuncioService.getAnuncioByCategoria($routeParams.ca_id,$scope.current_page).success(function(data) {
+           
+            $timeout(function() {
+                        $scope.anuncios.anunciosResult = data.datos;    
+                   $scope.anuncios.NumAnuncios = data.datos.length;
+                    $anchorScroll();  
+            }, 0);
+           
+        })
+      }
+
+      $scope.previewInCategoria = function()
+      {
+            --$scope.current_page; 
+            anuncioService.getAnuncioByCategoria($routeParams.ca_id,$scope.current_page).success(function(data) {
+           
+            $timeout(function() {
+                        $scope.anuncios.anunciosResult = data.datos;    
+                   $scope.anuncios.NumAnuncios = data.datos.length;
+                    $anchorScroll();  
+            }, 0);
+           
+        }) 
+      }
       
  }]);
