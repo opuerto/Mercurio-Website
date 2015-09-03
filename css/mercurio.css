@@ -220,6 +220,34 @@ a .anuncios ul li
     animation: fadeOut 1s;
 } 
 
+/*responsive iconos de paginacion y derechos reservados*/
+@media (max-width: 767px) {
+ #pie-pagina-anuncios 
+{
+  
+  margin:0 0 0 200px !important;
+  
+}
+}
+
+@media (max-width: 630px) {
+ #pie-pagina-anuncios 
+{
+  
+  margin:0 0 0 100px !important;
+  
+}
+}
+
+@media (max-width: 445px) {
+ #pie-pagina-anuncios 
+{
+  
+  margin:0 0 0 50px !important;
+  
+}
+}
+
 /*changing the color of the loading bar*/
 #loading-bar .bar {
   
@@ -240,6 +268,7 @@ a .anuncios ul li
   }
 
 }
+
 
 /* hide the ul element in anuncios when */
 /* No greater than 900px, no less than 400px */
