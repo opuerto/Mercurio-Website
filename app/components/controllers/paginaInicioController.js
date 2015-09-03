@@ -5,12 +5,15 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
         $scope.credentials = {}
         $scope.credentials.email;
         $scope.credentials.password;
+        $scope.current_page = 1;
+        $scope.lastpage;
+
         $scope.credentials.recordarme = 
         {
         value1 : 'NO'
        
         }
-        
+      
         var token = mainPageService.token;
         if (!token) {
             mainPageService.getToken().success(function(data) {
@@ -38,10 +41,11 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
 
        if($location.path() == '/')
        { 
-        anuncioService.getTodosLosAnuncios().success(function(data) {
+        anuncioService.getTodosLosAnuncios($scope.lastpage).success(function(data) {
            
             $scope.anuncios.anunciosResult = data.datos;
-
+            $scope.lastpage = data.pagination.last_page;
+          
             $scope.anuncios.NumAnuncios = data.datos.length;
         }).error(function(data,status) {
             
@@ -94,11 +98,11 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
 
         };
 
-         $scope.sumarClicks = function(id)
+        /* $scope.sumarClicks = function(id)
         {
             
             anuncioService.sumarClick(id)
-        }
+        }*/
 
         if ($location.path() == '/anuncios/categoria/'+$routeParams.ca_id) 
         {
@@ -128,8 +132,36 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
       
         };
 
+        $scope.next = function()
+        {
+             ++$scope.current_page;               
+             anuncioService.getTodosLosAnuncios($scope.current_page).success(function(data) {
+           
+            $timeout(function() {
+                        $scope.anuncios.anunciosResult = data.datos;    
+                   $scope.anuncios.NumAnuncios = data.datos.length;  
+            }, 0);
 
+            
 
+            
+           
+        })
         
+      }  
+      $scope.preview = function()
+        {
+             --$scope.current_page;               
+             anuncioService.getTodosLosAnuncios($scope.current_page).success(function(data) {
+            $timeout(function() {
+                        $scope.anuncios.anunciosResult = data.datos;    
+                   $scope.anuncios.NumAnuncios = data.datos.length;  
+            }, 0);
+
+                      
+           
+        })
+        
+      }  
       
  }]);

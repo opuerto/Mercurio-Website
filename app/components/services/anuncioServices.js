@@ -2,10 +2,10 @@ mercurioApp.service('anuncioService', ['$resource', '$cookies', '$http','mainPag
 
 	var url_request = mainPageService.urlRequest;
 	var token = mainPageService.token;
-	this.getTodosLosAnuncios = function()
+	this.getTodosLosAnuncios = function(lastpage)
 	{
 		if (token) {
-            var url = url_request+"/api/v0.1/anuncio/todoslosanuncios";
+            var url = url_request+"/api/v0.1/anuncio/todoslosanuncios/"+lastpage;
             var promise = $http({
                 method: 'GET',
                 url: url,

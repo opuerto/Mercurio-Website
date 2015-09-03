@@ -10,12 +10,8 @@ body.login-content:before {
   overflow-y:auto !important;
 }
 
-.header-inner .menu-items {
-  	position: absolute;
-    /*height: 35px;*/
-    top: 6px;
-  
-}
+
+
 
 #conteiner-pages
 {
