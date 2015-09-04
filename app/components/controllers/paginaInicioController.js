@@ -229,5 +229,6 @@ mercurioApp.controller('paginaInicioController', ['$cookies', '$scope', '$locati
            
         }) 
       }
+
       
  }]);
