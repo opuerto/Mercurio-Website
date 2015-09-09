@@ -3,8 +3,8 @@ function inicio(){
 	
     showSidebarDefautl();
     //take out for a momment .
-    //scrollable();
-    //$('#ascrail2000').show();
+    /*scrollable();
+    $('#ascrail2000').show();*/
    	
 }
 

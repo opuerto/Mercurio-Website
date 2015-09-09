@@ -1,6 +1,6 @@
 <div class="row m-t-15" id="anuncio-especifico" ng-show="anuncio.anuncioByIdResult">
     <div class="card" id="profile-main">
-        <nice-scroll></nice-scroll>
+        <!--nice-scroll></nice-scroll-->
         <div class="pm-overview c-overflow">
             <div class="pmo-pic hidden-xs">
                 <div class="p-relative" ng-if="tipoAnuncio === 'empresa'">
@@ -21,7 +21,7 @@
             <div id="info-aplicar" class="pmo-block pmo-contact">
                 <h2>INFORMACION PARA APLICAR</h2>
                 <ul>
-                    <li ng-if="anuncio.anuncioByIdResult.telefono_contacto != null && anuncio.anuncioByIdResult.telefono_contacto != 'null'"><i class="md md-phone"></i><span class="f-500 c-black"> {{anuncio.anuncioByIdResult.telefono_contacto}}</span></li>
+                    <li ng-if="anuncio.anuncioByIdResult.telefono_contacto != null && anuncio.anuncioByIdResult.telefono_contacto != 'null'"><i class="md md-phone"></i><span class="f-500 c-black">{{anuncio.anuncioByIdResult.telefono_contacto}}</span></li>
                     <li ng-if="anuncio.anuncioByIdResult.email_contacto != null && anuncio.anuncioByIdResult.email_contacto != 'null'"><i class="md md-email"></i><span class="f-500 c-black"> {{anuncio.anuncioByIdResult.email_contacto}}</span></li>
                     <li><i class="md md-location-city"></i> <span class="f-500 c-black">{{anuncio.anuncioByIdResult.ciudad}}</span></li>
                     <li ng-if="anuncio.anuncioByIdResult.link_website != null && anuncio.anuncioByIdResult.link_website != 'null'"><i class="md md-link"></i><span class="f-500 c-black" ng-bind="anuncio.anuncioByIdResult.link_website"></span></li>
