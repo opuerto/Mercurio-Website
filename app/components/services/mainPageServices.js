@@ -1,8 +1,11 @@
 mercurioApp.service('mainPageService', ['$resource', '$cookies', '$http', function($resource, $cookies, $http) {
 	this.urlRequest = 'http://app.mercurio.hn';
 	var urlR = 'http://app.mercurio.hn'; 
-	this.token = $cookies.get('token_mercuriowebsite');
-	var token_website = $cookies.get('token_mercuriowebsite');
+	//this.token = $cookies.get('token_mercuriowebsite');
+	//var token_website = $cookies.get('token_mercuriowebsite');
+	//lo tomo del localstorage por ahora. 
+	this.token = localStorage.getItem('token_mercuriowebsite');
+	var token_website = localStorage.getItem('token_mercuriowebsite');
 	this.getToken = function()
 	{
 		var url = urlR+"/accesstokenC";

@@ -15,19 +15,22 @@ mercurioApp.controller('globalPage', ['$cookies', '$scope', '$location', '$http'
                 time = new Date(1451606400 * 1000);
                 //si no hay errores al solicitar el cookie
                 //guardamos una nueva cookie 
-                $cookies.put('token_mercuriowebsite', data.access_token, {
+                //usando localStorage en lugar de cookies para guardar los tokens 
+                localStorage.setItem('token_mercuriowebsite', data.access_token);
+                /*$cookies.put('token_mercuriowebsite', data.access_token, {
                     'expires': time
-                });
+                });*/
                 location.reload();
             }).error(function(data) {
                 if (data.error == "access_denied") {
+                     localStorage.setItem('token_mercuriowebsite', data.access_token);
                     // Setting a cookie
                     time = new Date(1451606400 * 1000);
                     //si no hay errores al solicitar el cookie
                     //guardamos una nueva cookie 
-                    $cookies.put('token_mercuriowebsite', data.access_token, {
+                   /* $cookies.put('token_mercuriowebsite', data.access_token, {
                         'expires': time
-                    });
+                    });*/
                     location.reload();
                 };
             })
