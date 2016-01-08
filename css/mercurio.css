@@ -220,6 +220,8 @@ a .anuncios ul li
     animation: fadeOut 1s;
 } 
 
+
+
 /*responsive iconos de paginacion y derechos reservados*/
 @media (max-width: 767px) {
  #pie-pagina-anuncios 
@@ -268,6 +270,12 @@ a .anuncios ul li
   }
 
 }
+
+@media (max-width:767px) and (min-width:423px) {
+    .hide-publicity {
+        display:none;
+    }
+}​
 
 
 /* hide the ul element in anuncios when */
